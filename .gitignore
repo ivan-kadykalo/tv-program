@@ -1,0 +1,49 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Dependency directories
+/bower_components
+/pip-selfcheck.json
+
+# Environment variables and config files
+.env
+.env.local
+.env.*.local
+
+# OS or Editor specific
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build output directories
+/dist
+/build
+/out
+/.next
+
+# TypeScript
+*.tsbuildinfo
+
+# React / Angular / Vue / Next.js projects
+.eslintcache
+.cache/
+coverage/
+public/
+static/
+
+# Temporary files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Git
+.git/
