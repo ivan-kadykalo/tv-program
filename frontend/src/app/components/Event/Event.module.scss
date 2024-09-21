@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tvButton {
+  position: relative;
+
+  &:hover .tvInfo {
+    display: flex;
+  }
+
+  &:focus .tvInfo {
+    display: flex;
+  }
+}
+
+.tvInfo {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid black;
+  padding: 8px;
+  border-radius: 8px;
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  width: max-content;
+}
