@@ -1,0 +1,27 @@
+.typesSection {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.cardWrapper {
+  min-height: 160px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid darkgray;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #cccccc;
+  }
+}
+
+.selected {
+  background-color: lightgray;
+}

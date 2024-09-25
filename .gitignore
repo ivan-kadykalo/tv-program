@@ -47,3 +47,5 @@ static/
 
 # Git
 .git/
+
+.next

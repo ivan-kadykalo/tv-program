@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "npx tsc & ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "@types/cheerio": "^0.22.35",
+    "@types/node": "^22.5.5",
+    "@types/node-cron": "^3.0.11",
+    "axios": "^1.7.7"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3"
+  }
+}
