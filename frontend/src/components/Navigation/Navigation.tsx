@@ -18,12 +18,12 @@ export const Navigation: FC<Props> = (props) => {
       {programTypes.map((type) => (
         <button
           key={type}
-          onClick={() => setProgramType(programType)}
+          onClick={() => setProgramType(type)}
           className={cn(styles.cardWrapper, {
             [styles.selected]: type === programType,
           })}
         >
-          {programType}
+          {type}
         </button>
       ))}
     </nav>

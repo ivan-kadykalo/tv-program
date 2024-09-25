@@ -9,9 +9,10 @@ import {BASE_URL, PERIOD, WRITE_FILE_DIRECTORY} from "./TVScraper.constants";
 
 export class TVScraper {
   public async scrapeTvScheduleForToday(): Promise<void> {
-    const today = new Date().toISOString().split('T')[0];
-
-    await this.scrapeTvScheduleByDate(today);
+    console.log('🚨🚨🚨', 'Scrapping data' );
+    // const today = new Date().toISOString().split('T')[0];
+    //
+    // await this.scrapeTvScheduleByDate(today);
   }
 
   public async scrapeTvScheduleByDate(date: string): Promise<void> {
