@@ -1,4 +1,5 @@
 // import cron from "node-cron";
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 import { TVScraper } from "./controllers/TVScraper/TVScraper";
 
@@ -15,4 +16,10 @@ const scraper = new TVScraper();
 // });
 
 // Initial scrape when the app starts
-scraper.scrapeTvScheduleForToday();
+// scraper.scrapeTvScheduleForToday();
+
+export default function (request: VercelRequest, response: VercelResponse) {
+  scraper.scrapeTvScheduleForToday();
+
+  response.status(200).json({ name: 'Test' })
+}
