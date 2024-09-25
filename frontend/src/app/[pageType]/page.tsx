@@ -3,7 +3,7 @@ import React from "react";
 import {EventsTable} from "@/components/EventsTable/EventsTable";
 import {Navigation} from "@/components/Navigation/Navigation";
 
-import tvSchedule from "../../../data/tv_schedule.json";
+import tvSchedule from "./tv_schedule.json";
 import {Pages, ProgramTypeMapper} from "@/utils/constants";
 import {TVEvent} from "@/utils/typedefs";
 
