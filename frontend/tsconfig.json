@@ -12,6 +12,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "rootDir": "./src",                                  /* Specify the root folder within your source files. */
+    "outDir": "./dist",
     "plugins": [
       {
         "name": "next"
