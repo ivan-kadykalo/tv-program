@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@vercel/postgres": "^0.10.0",
     "concurrently": "^9.0.1"
   },
   "scripts": {
