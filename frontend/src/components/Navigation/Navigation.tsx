@@ -1,31 +1,30 @@
 import React, {FC} from "react";
 import styles from './Navigation.module.scss';
-import {PagesMapper} from "@/utils/constants";
 import cn from "classnames";
-import Link from "next/link";
 import {ProgramType} from "@/utils/typedefs";
 
 interface Props {
-  currentType?: ProgramType;
+  programType: ProgramType;
+  setProgramType: (type: ProgramType) => void;
 }
 
 export const Navigation: FC<Props> = (props) => {
-  const { currentType } = props;
+  const { programType, setProgramType } = props;
 
-  const eventTypes = Object.values(ProgramType);
+  const programTypes = Object.values(ProgramType);
 
   return (
     <nav className={styles.typesSection}>
-      {eventTypes.map((eventType) => (
-        <Link
-          key={eventType}
-          href={PagesMapper[eventType]}
+      {programTypes.map((type) => (
+        <button
+          key={type}
+          onClick={() => setProgramType(programType)}
           className={cn(styles.cardWrapper, {
-            [styles.selected]: eventType === currentType,
+            [styles.selected]: type === programType,
           })}
         >
-          {eventType}
-        </Link>
+          {programType}
+        </button>
       ))}
     </nav>
   )
