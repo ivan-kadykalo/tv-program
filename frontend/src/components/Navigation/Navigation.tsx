@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import styles from './Navigation.module.scss';
 import cn from "classnames";
 import {ProgramType} from "@/utils/typedefs";
+import {getTabName} from "@/utils/helpers";
 
 interface Props {
   programType: ProgramType;
@@ -23,7 +24,7 @@ export const Navigation: FC<Props> = (props) => {
             [styles.selected]: type === programType,
           })}
         >
-          {type}
+          {getTabName(type)}
         </button>
       ))}
     </nav>

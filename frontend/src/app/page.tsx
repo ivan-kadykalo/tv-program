@@ -23,7 +23,7 @@ const Home: FC = () => {
       </header>
 
       <main>
-        {!loading
+        {loading
           ? (
             <div className={styles.loaderContainer}>
               <div className={styles.loader}></div>
