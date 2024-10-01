@@ -14,6 +14,7 @@ const Home: FC = () => {
       try {
         const response = await fetch('/api/events');
 
+        console.log('✅', response );
         setEvents(await response.json());
       } catch (error) {
         console.log('🚨🚨🚨', 'Error while fetching events:', error);
