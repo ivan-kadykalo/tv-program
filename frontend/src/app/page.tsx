@@ -20,8 +20,7 @@ const Home: FC = () => {
 
         console.log('✅Sql', rows );
         console.log('✅Res', response );
-        // setEvents(await response.json());
-        // setEvents(rows);
+        setEvents(await response.json());
       } catch (error) {
         console.log('🚨🚨🚨', 'Error while fetching events:', error);
       }
