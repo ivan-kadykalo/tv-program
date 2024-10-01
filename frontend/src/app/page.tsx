@@ -12,7 +12,7 @@ const Home: FC = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('/api/routes/events');
+        const response = await fetch('/api/events');
 
         setEvents(await response.json());
       } catch (error) {
