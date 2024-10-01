@@ -5,15 +5,15 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "startDev": "npx tsc & ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "startDev": "build & start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/cheerio": "^0.22.35",
-    "@types/node": "^22.5.5",
+    "@types/node": "^22.7.4",
     "@types/node-cron": "^3.0.11",
     "@vercel/node": "^3.2.16",
     "axios": "^1.7.7",
@@ -23,6 +23,10 @@
   "dependencies": {
     "cheerio": "^1.0.0",
     "dotenv": "^16.4.5",
-    "node-cron": "^3.0.3"
+    "next": "^14.2.13",
+    "node-cron": "^3.0.3",
+    "pg": "^8.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

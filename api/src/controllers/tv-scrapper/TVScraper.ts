@@ -1,30 +1,43 @@
 import axios from 'axios';
-import * as fs from 'fs';
 
 const cheerio = require('cheerio');
 
-import {ERRORS, ProgramType, ScrapedData} from "./TVScraper.typedefs";
-import {BASE_URL, PERIOD, WRITE_FILE_DIRECTORY} from "./TVScraper.constants";
+import { ERRORS, ProgramType, Event } from "./TVScraper.typedefs";
+import { BASE_URL, PERIOD } from "./TVScraper.constants";
+import { insertMultipleEventsToDB } from "../db/queries";
 
 
 export class TVScraper {
-  public async scrapeTvScheduleForToday(): Promise<void> {
-    console.log('🚨🚨🚨', 'Scrapping data' );
-    // const today = new Date().toISOString().split('T')[0];
-    //
-    // await this.scrapeTvScheduleByDate(today);
+  public async processScrapping(date?: string): Promise<void> {
+    const today = new Date().toISOString().split('T')[0];
+
+    try {
+      const events = await this.scrapeTvScheduleByDate(date || today);
+
+      if (events?.length) {
+        await insertMultipleEventsToDB(events);
+      }
+    } catch (error) {
+      console.error('🚨', 'Error processing scraping:', error);
+    }
   }
 
-  public async scrapeTvScheduleByDate(date: string): Promise<void> {
+  public async scrapeTvScheduleForToday(): Promise<Event[] | undefined> {
+    const today = new Date().toISOString().split('T')[0];
+
+    return await this.scrapeTvScheduleByDate(today);
+  }
+
+  public async scrapeTvScheduleByDate(date: string): Promise<Event[] | undefined> {
     try {
       const scrapeLink = `${BASE_URL}${date}${PERIOD}`;
       const html = await this.fetchHtml(scrapeLink);
 
       const $ = cheerio.load(html);
 
-      const scrapedDataMap: Map<string, ScrapedData> = new Map();
+      const scrapedDataMap: Map<string, Event> = new Map();
 
-      $('.tv-channel').each((index: number, element: cheerio.Element) => {
+      $('.tv-channel').each((_: number, element: cheerio.Element) => {
         const channelName = $(element)
           .find('.tv-channel__title a')
           .text()
@@ -43,23 +56,19 @@ export class TVScraper {
 
             scrapedDataMap.set(
               programName, {
-              id: programName,
               name: programName,
               type: type,
-              tvInfo: {
-                channelName: channelName,
-                time: time,
-                date: date,
-              }
+              channel: channelName,
+              time: new Date(`${date} ${time}`),
             });
           });
       });
 
-      const scrapedDataArray: ScrapedData[] = Array.from(scrapedDataMap.values());
+      const scrapedDataArray: Event[] = Array.from(scrapedDataMap.values());
 
       console.log('🚀', 'Page successfully scraped');
 
-      fs.writeFileSync(WRITE_FILE_DIRECTORY, JSON.stringify(scrapedDataArray, null, 2));
+      return scrapedDataArray;
     } catch (error) {
       console.error('🚨', 'Error scraping data:', error);
     }

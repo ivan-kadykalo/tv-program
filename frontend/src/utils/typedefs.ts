@@ -16,4 +16,5 @@ export interface TVEvent {
   name: string;
   type: ProgramType;
   tvInfo: TvInfo;
+  channel: string;
 }

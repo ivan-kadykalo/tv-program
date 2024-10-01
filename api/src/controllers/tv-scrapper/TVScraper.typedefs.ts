@@ -4,11 +4,11 @@ export interface TvInfo {
   date: string;
 }
 
-export interface ScrapedData {
-  id: string;
+export interface Event {
   name: string;
   type: ProgramType;
-  tvInfo: TvInfo;
+  channel: string;
+  time: Date;
 }
 
 export enum ProgramType {

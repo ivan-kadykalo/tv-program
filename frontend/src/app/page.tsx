@@ -1,17 +1,30 @@
 "use client";
 
 import styles from "./page.module.scss";
-import React, {useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import {Navigation} from "@/components/Navigation/Navigation";
 import {EventsTable} from "@/components/EventsTable/EventsTable";
-import tvSchedule from "@/app/tv_schedule.json";
 import {ProgramType, TVEvent} from "@/utils/typedefs";
 
-export default function Home() {
-  const [programType, setProgramType] = useState(ProgramType.MOVIE);
+const Home: FC = () => {
+  const [events, setEvents] = useState<TVEvent[]>([]);
 
-  const fetchedEvents = tvSchedule as unknown as TVEvent[];
-  const events = fetchedEvents.filter((event) => event.type === programType)
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch('/api/routes/events');
+
+        setEvents(await response.json());
+      } catch (error) {
+        console.log('🚨🚨🚨', 'Error while fetching events:', error);
+      }
+    }
+
+    fetchEvents();
+  }, []);
+
+  const [programType, setProgramType] = useState(ProgramType.MOVIE);
+  const filteredEvents = events.filter((event) => event.type === programType)
 
   return (
     <div className={styles.page}>
@@ -24,9 +37,11 @@ export default function Home() {
 
       <main>
         <EventsTable
-          events={events}
+          events={filteredEvents}
         />
       </main>
     </div>
   );
 }
+
+export default Home;

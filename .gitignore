@@ -13,21 +13,21 @@ logs/
 /pip-selfcheck.json
 
 # Environment variables and config files
-.env
+.env.development.local
 .env.local
 .env.*.local
 
 # OS or Editor specific
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
+.vscode
+.idea
 
 # Build output directories
-/dist
-/build
-/out
-/.next
+dist
+build
+out
+.next
 
 # TypeScript
 *.tsbuildinfo
