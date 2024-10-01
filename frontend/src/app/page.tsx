@@ -5,6 +5,9 @@ import React, {FC, useEffect, useState} from "react";
 import {Navigation} from "@/components/Navigation/Navigation";
 import {EventsTable} from "@/components/EventsTable/EventsTable";
 import {ProgramType, TVEvent} from "@/utils/typedefs";
+import {sql} from "@vercel/postgres";
+
+const TABLE_NAME = 'events';
 
 const Home: FC = () => {
   const [events, setEvents] = useState<TVEvent[]>([]);
@@ -13,9 +16,12 @@ const Home: FC = () => {
     const fetchEvents = async () => {
       try {
         const response = await fetch('/api/events');
+        const { rows } = await sql`SELECT * from ${TABLE_NAME}`;
 
-        console.log('✅', response );
-        setEvents(await response.json());
+        console.log('✅Sql', rows );
+        console.log('✅Res', response );
+        // setEvents(await response.json());
+        // setEvents(rows);
       } catch (error) {
         console.log('🚨🚨🚨', 'Error while fetching events:', error);
       }
