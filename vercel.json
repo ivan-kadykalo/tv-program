@@ -13,5 +13,11 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "frontend/$1" }
+  ],
+  "crons": [
+    {
+      "path": "/api/src/index.ts",
+      "schedule": "0 1 * * *"
+    }
   ]
 }
