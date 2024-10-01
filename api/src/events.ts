@@ -6,8 +6,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const events = await queryEvents();
 
-      console.log('🚨--🚨', events );
-
       res.status(200).json(events);
     } catch (error) {
       res.status(500).json({ error });
