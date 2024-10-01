@@ -10,9 +10,10 @@ interface Props {
 
 export const EventRow: FC<Props> = ({ event }) => {
   const { name, channel, time: dateTime } = event;
-  // get time and date separately
-  const date = dateTime.toLocaleDateString();
-  const time = dateTime.toLocaleTimeString();
+
+  const newDate = new Date(dateTime);
+  const date = newDate.toLocaleDateString();
+  const time = newDate.toLocaleTimeString();
 
   const searchLink = getSearchLink(name);
 
