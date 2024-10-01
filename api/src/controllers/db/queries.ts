@@ -4,8 +4,8 @@ import { Event } from "../tv-scrapper/TVScraper.typedefs";
 const TABLE_NAME = 'events';
 
 const pool = new Pool({
-  // connectionString: process.env.DATABASE_URL,
-  connectionString: "postgres://default:BSc1IVYWPMb9@ep-little-block-a2fbpc7j-pooler.eu-central-1.aws.neon.tech/verceldb?sslmode=require",
+  connectionString: process.env.POSTGRES_URL,
+  // connectionString: "postgres://default:BSc1IVYWPMb9@ep-little-block-a2fbpc7j-pooler.eu-central-1.aws.neon.tech/verceldb?sslmode=require",
 });
 
 const queryDB = async (query: string) => {
