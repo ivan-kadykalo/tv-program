@@ -5,7 +5,6 @@ const TABLE_NAME = 'events';
 
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
-  // connectionString: "postgres://default:BSc1IVYWPMb9@ep-little-block-a2fbpc7j-pooler.eu-central-1.aws.neon.tech/verceldb?sslmode=require",
 });
 
 const queryDB = async (query: string) => {
@@ -44,7 +43,12 @@ export const insertMultipleEventsToDB = async (events: Event[]) => {
 }
 
 export const queryEvents = async () => {
-  const query = `SELECT * FROM ${TABLE_NAME}`;
+  const query = `
+    SELECT * 
+    FROM ${TABLE_NAME} 
+    WHERE time >= NOW() - INTERVAL '7 days' 
+    ORDER BY time DESC
+  `;
 
   return await queryDB(query);
 }

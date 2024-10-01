@@ -1,7 +1,18 @@
+@mixin mobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
 .typesSection {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   justify-content: center;
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .cardWrapper {
@@ -19,6 +30,10 @@
 
   &:hover {
     background-color: #cccccc;
+  }
+
+  @include mobile {
+    min-height: 70px;
   }
 }
 
