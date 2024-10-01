@@ -9,8 +9,10 @@ interface Props {
 }
 
 export const EventRow: FC<Props> = ({ event }) => {
-  const { name, tvInfo } = event;
-  const { channelName, time, date } = tvInfo;
+  const { name, channel, time: dateTime } = event;
+  // get time and date separately
+  const date = dateTime.toLocaleDateString();
+  const time = dateTime.toLocaleTimeString();
 
   const searchLink = getSearchLink(name);
 
@@ -24,7 +26,7 @@ export const EventRow: FC<Props> = ({ event }) => {
         </Link>
       </td>
 
-      <td>{channelName}</td>
+      <td>{channel}</td>
 
       <td>{date}</td>
 
