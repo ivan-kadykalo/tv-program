@@ -44,10 +44,13 @@ export const insertMultipleEventsToDB = async (events: Event[]) => {
 
 export const queryEvents = async () => {
   const query = `
+  SELECT * FROM (
     SELECT DISTINCT ON (name) *
     FROM ${TABLE_NAME}
     WHERE time >= NOW() - INTERVAL '7 days'
-    ORDER BY time DESC, name
+    ORDER BY name
+  ) subquery
+  ORDER BY time DESC
 `;
 
   return await queryDB(query);
