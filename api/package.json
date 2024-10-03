@@ -5,7 +5,7 @@
   "main": "src/scrape.ts",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/scrape.ts",
+    "start": "ts-node src/nodeScrape.ts",
     "startDev": "build & start"
   },
   "keywords": [],
