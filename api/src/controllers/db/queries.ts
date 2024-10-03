@@ -47,7 +47,7 @@ export const queryEvents = async () => {
     SELECT DISTINCT ON (name) *
     FROM ${TABLE_NAME}
     WHERE time >= NOW() - INTERVAL '7 days'
-    ORDER BY name, time DESC
+    ORDER BY time DESC
 `;
 
   return await queryDB(query);

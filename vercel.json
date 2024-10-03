@@ -16,7 +16,7 @@
   ],
   "crons": [
     {
-      "path": "/api/src/index.ts",
+      "path": "/api/src/scrape.ts",
       "schedule": "0 1 * * *"
     }
   ]
