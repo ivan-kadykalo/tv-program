@@ -2,6 +2,8 @@ import React, { ReactNode } from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/style/globals.scss";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -28,6 +30,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

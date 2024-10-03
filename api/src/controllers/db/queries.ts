@@ -55,3 +55,12 @@ export const queryEvents = async () => {
 
   return await queryDB(query);
 }
+
+export const cleanOldRecordsFromDB = async () => {
+  const query = `
+    DELETE FROM ${TABLE_NAME}
+    WHERE time < NOW() - INTERVAL '8 days'
+  `;
+
+  return await queryDB(query);
+}

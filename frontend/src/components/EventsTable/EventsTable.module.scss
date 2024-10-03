@@ -1,3 +1,5 @@
+$cellPadding: 8px;
+
 .tableContainer {
   overflow-x: auto;
 }
@@ -8,13 +10,13 @@
   user-select: none;
 
   & td {
-    padding: 8px 16px;
+    padding: $cellPadding;
     border: 1px solid #ddd;
     vertical-align: middle;
   }
 
   & th {
-    padding: 8px 16px;
+    padding: $cellPadding;
     border: 1px solid #ddd;
     background-color: #f2f2f2;
     text-align: center;
@@ -22,41 +24,48 @@
     vertical-align: middle;
   }
 
-  // Search
-  th:nth-child(1), td:nth-child(1) {
-    padding: 0;
-
-    text-align: center;
+  // Name
+  th:nth-child(1),
+  td:nth-child(1) {
     min-width: 200px;
   }
 
+  th:nth-child(1) {
+    text-align: center;
+  }
+
+  td:nth-child(1) {
+    text-align: left;
+  }
+
+  // Search
   th:nth-child(2), td:nth-child(2) {
     padding: 0;
 
     text-align: center;
-    min-width: 100px;
-    width: 140px;
+    min-width: 70px;
+    width: 70px;
   }
 
   // Channel
   th:nth-child(3), td:nth-child(3) {
     text-align: center;
-    min-width: 160px;
-    width: 220px;
+    min-width: 100px;
+    width: 180px;
   }
 
   // Date
   th:nth-child(4), td:nth-child(4) {
     text-align: center;
-    min-width: 100px;
-    width: 140px;
+    min-width: 110px;
+    width: 110px;
   }
 
   // Time
   th:nth-child(5), td:nth-child(5) {
     text-align: center;
-    min-width: 70px;
-    width: 90px;
+    min-width: 95px;
+    width: 95px;
   }
 }
 

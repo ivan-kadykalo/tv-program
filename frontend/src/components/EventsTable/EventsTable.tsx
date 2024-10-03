@@ -21,7 +21,7 @@ export const EventsTable: FC<Props> = ({ events }) => {
 
             <th>Дата</th>
 
-            <th>Час</th>
+            <th>Година</th>
           </tr>
         </thead>
 
