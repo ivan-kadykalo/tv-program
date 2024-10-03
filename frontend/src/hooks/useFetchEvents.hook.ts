@@ -15,7 +15,6 @@ export const useFetchEvents = (): Output => {
       try {
         const response = await fetch('/api/src/events.ts');
 
-        console.log('✅Res', response );
         setEvents(await response.json());
         setLoading(false);
       } catch (error) {
