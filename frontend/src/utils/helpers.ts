@@ -18,3 +18,15 @@ export const getTabName= (type: ProgramType) => {
       return '';
   }
 }
+
+export const checkIsDateWasDaysAgo = (targetDate: Date, daysAgo: number): boolean => {
+  const today = new Date();
+
+  today.setHours(0, 0, 0, 0);
+  targetDate.setHours(0, 0, 0, 0);
+
+  const sevenDaysAgo = new Date(today);
+  sevenDaysAgo.setDate(today.getDate() - daysAgo);
+
+  return targetDate <= sevenDaysAgo;
+}

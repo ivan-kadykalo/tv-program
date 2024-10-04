@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styles from "./EventRow.module.scss";
-import { getSearchLink } from "@/utils/helpers";
+import {checkIsDateWasDaysAgo, getSearchLink} from "@/utils/helpers";
 import { TVEvent } from "@/utils/typedefs";
 import Link from "next/link";
 import cn from "classnames";
@@ -18,7 +18,7 @@ export const EventRow: FC<Props> = ({ event }) => {
 
   const searchLink = getSearchLink(name);
 
-  const isOld = newDate.getTime() < Date.now() - 6 * 24 * 60 * 60 * 1000;
+  const isOld = checkIsDateWasDaysAgo(newDate, 7);
 
   return (
     <tr className={cn(styles.row, {
