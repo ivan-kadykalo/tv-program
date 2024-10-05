@@ -59,7 +59,7 @@ export class TVScraper {
               name: programName,
               type: type,
               channel: channelName,
-              time: new Date(`${date} ${time}`),
+              time: new Date(`${date}T${time}+03:00`),
             });
           });
       });
@@ -119,8 +119,6 @@ export class TVScraper {
   private determineType(name: string): ProgramType | null {
     if (name.includes('Х/ф')) return ProgramType.MOVIE;
     if (name.includes('М/ф')) return ProgramType.CARTOON;
-    if (name.includes('М/с')) return ProgramType.CARTOON_SERIES;
-    if (name.includes('Т/с')) return ProgramType.SERIES;
     return null;
   }
 }

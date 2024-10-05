@@ -10,6 +10,10 @@
   background-color: lightcoral;
 }
 
+.inLive {
+  background-color: lightblue;
+}
+
 .searchLink {
   position: relative;
 
@@ -32,4 +36,8 @@
       background-color: red;
     }
   }
+}
+
+.dateElem {
+  display: inline-block;
 }

@@ -43,29 +43,22 @@ $cellPadding: 8px;
     padding: 0;
 
     text-align: center;
-    min-width: 70px;
-    width: 70px;
-  }
-
-  // Channel
-  th:nth-child(3), td:nth-child(3) {
-    text-align: center;
-    min-width: 100px;
-    width: 180px;
+    min-width: 40px;
+    width: 40px;
   }
 
   // Date
-  th:nth-child(4), td:nth-child(4) {
+  th:nth-child(3), td:nth-child(3) {
     text-align: center;
-    min-width: 110px;
-    width: 110px;
+    min-width: 90px;
+    width: 90px;
   }
 
-  // Time
-  th:nth-child(5), td:nth-child(5) {
+  // Channel
+  th:nth-child(4), td:nth-child(4) {
     text-align: center;
-    min-width: 95px;
-    width: 95px;
+    min-width: 120px;
+    width: 120px;
   }
 }
 

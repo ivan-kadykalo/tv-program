@@ -1,8 +1,6 @@
 export enum ProgramType {
   MOVIE = 'MOVIE',
   CARTOON = 'CARTOON',
-  CARTOON_SERIES = 'CARTOON_SERIES',
-  SERIES = 'SERIES',
 }
 
 export interface TVEvent {

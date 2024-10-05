@@ -10,10 +10,6 @@ export const getTabName= (type: ProgramType) => {
       return 'Фільми';
     case ProgramType.CARTOON:
       return 'Мультфільми';
-    case ProgramType.SERIES:
-      return 'Серіали';
-    case ProgramType.CARTOON_SERIES:
-      return 'Мультсеріали';
     default:
       return '';
   }
@@ -30,3 +26,34 @@ export const checkIsDateWasDaysAgo = (targetDate: Date, daysAgo: number): boolea
 
   return targetDate <= sevenDaysAgo;
 }
+
+export const getFormatedDateAndTime = (timestamp: Date) => {
+  const dayMonthFormatter = new Intl.DateTimeFormat('uk-UA', {
+    day: 'numeric',
+    month: 'short'
+  });
+
+  const timeFormatter = new Intl.DateTimeFormat('uk-UA', {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+  const formattedDayMonth = dayMonthFormatter.format(timestamp);
+  const formattedTime = timeFormatter.format(timestamp);
+
+  return {
+    date: formattedDayMonth,
+    time: formattedTime,
+  };
+}
+
+export const isEventInCurrentHour = (eventDate: Date): boolean => {
+  const currentTime = new Date();
+
+  const eventHour = eventDate.getHours();
+  const currentHour = currentTime.getHours();
+
+  const isSameDay = eventDate.toDateString() === currentTime.toDateString();
+
+  return isSameDay && Math.abs(currentHour - eventHour) <= 1;
+};

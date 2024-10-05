@@ -47,7 +47,8 @@ export const queryEvents = async () => {
     SELECT * FROM (
       SELECT DISTINCT ON (name) *
       FROM ${TABLE_NAME}
-      WHERE DATE_TRUNC('day', time) >= DATE_TRUNC('day', NOW()) - INTERVAL '7 days'
+      WHERE DATE_TRUNC('day', time) BETWEEN DATE_TRUNC('day', NOW()) - INTERVAL '10 days' 
+        AND DATE_TRUNC('day', NOW())
       ORDER BY name, time DESC
     ) subquery
     ORDER BY time DESC;
@@ -56,10 +57,11 @@ export const queryEvents = async () => {
   return await queryDB(query);
 }
 
+
 export const cleanOldRecordsFromDB = async () => {
   const query = `
     DELETE FROM ${TABLE_NAME}
-    WHERE time < NOW() - INTERVAL '8 days'
+    WHERE time < NOW() - INTERVAL '11 days'
   `;
 
   return await queryDB(query);

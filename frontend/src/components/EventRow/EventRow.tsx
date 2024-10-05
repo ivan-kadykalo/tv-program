@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styles from "./EventRow.module.scss";
-import {checkIsDateWasDaysAgo, getSearchLink} from "@/utils/helpers";
+import {checkIsDateWasDaysAgo, getFormatedDateAndTime, getSearchLink, isEventInCurrentHour} from "@/utils/helpers";
 import { TVEvent } from "@/utils/typedefs";
 import Link from "next/link";
 import cn from "classnames";
@@ -13,30 +13,32 @@ export const EventRow: FC<Props> = ({ event }) => {
   const { name, channel, time: dateTime } = event;
 
   const newDate = new Date(dateTime);
-  const date = newDate.toLocaleDateString();
-  const time = newDate.toLocaleTimeString();
-
+  const { date, time } = getFormatedDateAndTime(newDate);
   const searchLink = getSearchLink(name);
-
-  const isOld = checkIsDateWasDaysAgo(newDate, 7);
+  const isOld = checkIsDateWasDaysAgo(newDate, 10);
+  const isEventShowedNow = isEventInCurrentHour(dateTime);
 
   return (
     <tr className={cn(styles.row, {
-      [styles.old]: isOld
+      [styles.old]: isOld,
+      [styles.inLive]: isEventShowedNow
     })}>
       <td>{name}</td>
 
       <td className={styles.searchLink}>
         <Link href={searchLink} target='_blank' rel="noreferrer">
-          Search
+          🔍
         </Link>
       </td>
 
+
+      <td>
+        <span className={styles.dateElem}>{date}</span>
+        <span className={styles.dateElem}>{time}</span>
+      </td>
+
+
       <td>{channel}</td>
-
-      <td>{date}</td>
-
-      <td>{time}</td>
     </tr>
   );
 };
