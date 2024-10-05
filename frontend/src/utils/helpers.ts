@@ -47,7 +47,8 @@ export const getFormatedDateAndTime = (timestamp: Date) => {
   };
 }
 
-export const isEventInCurrentHour = (eventDate: Date): boolean => {
+export const isEventInCurrentHour = (date: Date): boolean => {
+  const eventDate = new Date(date);
   const currentTime = new Date();
 
   const eventHour = eventDate.getHours();

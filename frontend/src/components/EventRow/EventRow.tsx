@@ -31,12 +31,10 @@ export const EventRow: FC<Props> = ({ event }) => {
         </Link>
       </td>
 
-
       <td>
         <span className={styles.dateElem}>{date}</span>
         <span className={styles.dateElem}>{time}</span>
       </td>
-
 
       <td>{channel}</td>
     </tr>
