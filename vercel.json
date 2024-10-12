@@ -6,12 +6,12 @@
       "use": "@vercel/next"
     },
     {
-      "src": "api/src/*",
+      "src": "api/src/rest/*.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/api/(.*)", "dest": "/api/src/rest/$1" },
     { "src": "/(.*)", "dest": "frontend/$1" }
   ],
   "crons": [
