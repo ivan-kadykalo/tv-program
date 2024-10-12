@@ -13,7 +13,7 @@ export const useFetchEvents = (): Output => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('/api/events.ts');
+        const response = await fetch('/api/src/rest/events.ts');
 
         setEvents(await response.json());
 
