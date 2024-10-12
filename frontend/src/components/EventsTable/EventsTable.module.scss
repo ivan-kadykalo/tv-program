@@ -38,24 +38,15 @@ $cellPadding: 8px;
     text-align: left;
   }
 
-  // Search
-  th:nth-child(2), td:nth-child(2) {
-    padding: 0;
-
-    text-align: center;
-    min-width: 40px;
-    width: 40px;
-  }
-
   // Date
-  th:nth-child(3), td:nth-child(3) {
+  th:nth-child(2), td:nth-child(2) {
     text-align: center;
     min-width: 90px;
     width: 90px;
   }
 
   // Channel
-  th:nth-child(4), td:nth-child(4) {
+  th:nth-child(3), td:nth-child(3) {
     text-align: center;
     min-width: 120px;
     width: 120px;

@@ -8,14 +8,16 @@ interface Output {
 
 export const useFetchEvents = (): Output => {
   const [events, setEvents] = useState<TVEvent[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch('/api/src/events.ts');
+        const response = await fetch('/api/src/rest/events.ts');
 
         setEvents(await response.json());
+
+        console.log('🚨🚨🚨', response );
         setLoading(false);
       } catch (error) {
         console.log('🚨', 'Error while fetching events:', error);

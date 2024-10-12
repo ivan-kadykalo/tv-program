@@ -56,5 +56,5 @@ export const isEventInCurrentHour = (date: Date): boolean => {
 
   const isSameDay = eventDate.toDateString() === currentTime.toDateString();
 
-  return isSameDay && Math.abs(currentHour - eventHour) <= 1;
+  return isSameDay && Math.abs(currentHour - eventHour) < 1;
 };

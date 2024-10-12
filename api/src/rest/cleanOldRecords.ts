@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {cleanOldRecordsFromDB, queryEvents} from "./controllers/db/queries";
+import {cleanOldRecordsFromDB, queryEvents} from "../controllers/db/queries";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {

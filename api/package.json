@@ -2,27 +2,29 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "src/scrape.ts",
+  "main": "src/rest/scrape.ts",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/nodeScrape.ts",
-    "startDev": "build & start"
+    "dev": "ts-node src/server.ts",
+    "dev-js": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/cheerio": "^0.22.35",
-    "@types/node": "^22.7.4",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
     "@types/node-cron": "^3.0.11",
     "@vercel/node": "^3.2.16",
     "axios": "^1.7.7",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
     "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "next": "^14.2.13",
     "node-cron": "^3.0.3",
     "pg": "^8.13.0",

@@ -15,8 +15,6 @@ export const EventsTable: FC<Props> = ({ events }) => {
           <tr>
             <th>Назва</th>
 
-            <th></th>
-
             <th>Час</th>
 
             <th>Канал</th>

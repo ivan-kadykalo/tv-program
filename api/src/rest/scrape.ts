@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { TVScraper } from "./controllers/tv-scrapper/TVScraper";
+import { TVScraper } from "../controllers/tv-scrapper/TVScraper";
 
 const scraper = new TVScraper();
 

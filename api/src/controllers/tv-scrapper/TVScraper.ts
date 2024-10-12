@@ -18,14 +18,8 @@ export class TVScraper {
         await insertMultipleEventsToDB(events);
       }
     } catch (error) {
-      console.error('🚨', 'Error processing scraping:', error);
+      console.error(ERRORS.SCRAPING_FAILED, error);
     }
-  }
-
-  public async scrapeTvScheduleForToday(): Promise<Event[] | undefined> {
-    const today = new Date().toISOString().split('T')[0];
-
-    return await this.scrapeTvScheduleByDate(today);
   }
 
   public async scrapeTvScheduleByDate(date: string): Promise<Event[] | undefined> {
@@ -70,7 +64,7 @@ export class TVScraper {
 
       return scrapedDataArray;
     } catch (error) {
-      console.error('🚨', 'Error scraping data:', error);
+      console.error(ERRORS.SCRAPING_FAILED, error);
     }
   }
 

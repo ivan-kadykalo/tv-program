@@ -6,7 +6,7 @@
       "use": "@vercel/next"
     },
     {
-      "src": "api/src/*.ts",
+      "src": "api/src/*",
       "use": "@vercel/node"
     }
   ],
@@ -16,11 +16,11 @@
   ],
   "crons": [
     {
-      "path": "/api/src/scrape.ts",
+      "path": "/api/src/rest/scrape.ts",
       "schedule": "0 1 * * *"
     },
     {
-      "path": "/api/src/cleanOldRecords.ts",
+      "path": "/api/src/rest/cleanOldRecords.ts",
       "schedule": "0 4 * * *"
     }
   ]
