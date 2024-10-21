@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "@/style/globals.scss";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { PublicEnvScript } from 'next-runtime-env';
+
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -18,8 +20,9 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "TV program",
-  description: "Filtered TV program",
 };
+
+
 
 export default function RootLayout({
   children,
@@ -28,11 +31,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <PublicEnvScript />
+        <title>
+          TV program
+        </title>
+      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
 
-        <Analytics />
-        <SpeedInsights />
+        <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );

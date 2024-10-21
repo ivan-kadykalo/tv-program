@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "env $(cat ../.env | xargs) next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,6 +14,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "classnames": "^2.5.1",
     "next": "14.2.13",
+    "next-runtime-env": "^3.2.2",
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.79.3"

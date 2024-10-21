@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 
 import { ERRORS, ProgramType, Event } from "./TVScraper.typedefs";
 import { BASE_URL, PERIOD } from "./TVScraper.constants";
-import { insertMultipleEventsToDB } from "../db/queries";
+import { addEventsToDB } from "../db/queries";
 
 
 export class TVScraper {
@@ -15,7 +15,7 @@ export class TVScraper {
       const events = await this.scrapeTvScheduleByDate(date || today);
 
       if (events?.length) {
-        await insertMultipleEventsToDB(events);
+        await addEventsToDB(events);
       }
     } catch (error) {
       console.error(ERRORS.SCRAPING_FAILED, error);

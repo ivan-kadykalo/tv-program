@@ -22,7 +22,7 @@ const queryDB = async (query: string) => {
   }
 };
 
-export const insertMultipleEventsToDB = async (events: Event[]) => {
+export const addEventsToDB = async (events: Event[]) => {
   try {
     const values = events.map(({ name, type, channel, time}) => {
       return `('${name}', '${type}', '${time.toISOString()}', '${channel}')`;

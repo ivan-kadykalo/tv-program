@@ -1,21 +1,55 @@
+#services:
+#  postgres:
+#    image: postgres
+#    environment:
+#      POSTGRES_PASSWORD: password
+#    # Expose the Postgres port to the host machine,
+#    # so you can inspect and administrate it
+#    ports:
+#      - '54320:5432'
+#  pg_proxy:
+#    image: ghcr.io/neondatabase/wsproxy:latest
+#    environment:
+#      APPEND_PORT: 'postgres:5432'
+#      ALLOW_ADDR_REGEX: '.*'
+#      LOG_TRAFFIC: 'true'
+#    ports:
+#      # Expose the WebSocket proxy port to the host machine,
+#      # this is where @vercel/postgres will connect
+#      - '54330:80'
+#    depends_on:
+#      - postgres
+
+
+version: '3.8'
+
 services:
-  postgres:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: password
-    # Expose the Postgres port to the host machine,
-    # so you can inspect and administrate it
+  api:
+    image: node:20-alpine
+    container_name: api
+    working_dir: /usr/src/api
+    volumes:
+      - ./api:/usr/src/api
+      - /usr/src/api/node_modules
+    build:
+      context: ./api
     ports:
-      - '54320:5432'
-  pg_proxy:
-    image: ghcr.io/neondatabase/wsproxy:latest
+      - "5010:5010"
     environment:
-      APPEND_PORT: 'postgres:5432'
-      ALLOW_ADDR_REGEX: '.*'
-      LOG_TRAFFIC: 'true'
+      - ENV=development
+    command: npm run dev
+
+  frontend:
+    image: node:20-alpine
+    container_name: frontend
+    working_dir: /usr/src/frontend
+    volumes:
+      - ./frontend:/usr/src/frontend
+      - /usr/src/frontend/node_modules
+    build:
+      context: ./frontend
     ports:
-      # Expose the WebSocket proxy port to the host machine,
-      # this is where @vercel/postgres will connect
-      - '54330:80'
-    depends_on:
-      - postgres
+      - "3000:3000"
+    environment:
+      - ENV=development
+    command: npm run dev

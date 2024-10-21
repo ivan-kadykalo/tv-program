@@ -13,8 +13,8 @@ logs/
 /pip-selfcheck.json
 
 # Environment variables and config files
-.env.development.local
-.env.local
+.env
+.env
 .env.*.local
 
 # OS or Editor specific
