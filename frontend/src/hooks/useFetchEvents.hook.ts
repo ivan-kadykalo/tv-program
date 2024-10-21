@@ -37,7 +37,7 @@ export const useFetchEvents = (): Output => {
 
   const apiUrl = isDevelopment
     ? `${API_HOST}${API_REST_ENDPOINT}/events.ts`
-    : `/api/src/rest/events`;
+    : `/api/src/rest/events.ts`;
 
   useEffect(() => {
     const fetchEvents = async () => {
