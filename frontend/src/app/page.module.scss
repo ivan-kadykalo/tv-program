@@ -1,7 +1,10 @@
+@import '../style/utils';
+
 .page {
+  @include textMain;
+
   padding: 16px;
   min-height: 100svh;
-  font-family: var(--font-geist-sans);
 
   max-width: 800px;
   margin: 0 auto;
@@ -13,11 +16,9 @@
 
 
 .title {
-  font-size: 24px;
-  font-weight: 600;
+  @include textTitle;
 
   padding: 40px 20px;
-
   text-align: center;
 }
 
@@ -29,7 +30,7 @@
 }
 
 .loader {
-  color: gray;
+  color: #49849f;
   font-size: 60px;
   text-indent: -9999em;
   overflow: hidden;
@@ -38,7 +39,9 @@
   border-radius: 50%;
   position: relative;
   transform: translateZ(0);
-  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+  animation:
+    mltShdSpin 1.7s infinite ease,
+    round 1.7s infinite ease;
 }
 
 @keyframes mltShdSpin {
@@ -47,14 +50,12 @@
     0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
     0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
-  5%,
-  95% {
+  5%, 95% {
     box-shadow: 0 -0.83em 0 -0.4em,
     0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
     0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
-  10%,
-  59% {
+  10%, 59% {
     box-shadow: 0 -0.83em 0 -0.4em,
     -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em,
     -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
@@ -76,6 +77,10 @@
 }
 
 @keyframes round {
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

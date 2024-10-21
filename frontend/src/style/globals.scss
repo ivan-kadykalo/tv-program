@@ -1,9 +1,5 @@
 @import 'reset';
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import 'utils';
 
 html,
 body {
@@ -12,9 +8,11 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @include textMain;
+
+  color: $color-main;
+  background: $bg-color-main;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

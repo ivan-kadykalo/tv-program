@@ -1,4 +1,4 @@
-$cellPadding: 8px;
+@import '../../style/utils';
 
 .tableContainer {
   overflow-x: auto;
@@ -11,23 +11,27 @@ $cellPadding: 8px;
 
   & td {
     padding: $cellPadding;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid $table-line-color;
     vertical-align: middle;
   }
 
   & th {
     padding: $cellPadding;
-    border: 1px solid #ddd;
-    background-color: #f2f2f2;
+    border-top: 1px solid $table-line-color;
+    border-bottom: 1px solid $table-line-color;
+
+    background-color: rgba(162, 189, 201, 0.7);
+
     text-align: center;
-    font-weight: bold;
     vertical-align: middle;
+
+    font-weight: $font-weight-bold;
   }
 
   // Name
   th:nth-child(1),
   td:nth-child(1) {
-    min-width: 200px;
+    min-width: 180px;
   }
 
   th:nth-child(1) {

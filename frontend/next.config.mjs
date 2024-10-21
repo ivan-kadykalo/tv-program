@@ -9,6 +9,7 @@ const __dirname = dirname(__filename);
 config({ path: resolve(__dirname, '../.env') });
 
 makeEnvPublic([
+  'ENV',
   'API_HOST',
   'API_REST_ENDPOINT',
 ]);

@@ -22,6 +22,8 @@ export const Navigation: FC<Props> = (props) => {
           onClick={() => setProgramType(type)}
           className={cn(styles.cardWrapper, {
             [styles.selected]: type === programType,
+            [styles.movie]: type === ProgramType.MOVIE,
+            [styles.cartoon]: type === ProgramType.CARTOON,
           })}
         >
           {getTabName(type)}

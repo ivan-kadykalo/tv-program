@@ -23,8 +23,13 @@ export const EventRow: FC<Props> = ({ event }) => {
       [styles.old]: isOld,
       [styles.inLive]: isEventShowedNow
     })}>
-      <td>
-        <Link href={searchLink} target='_blank' rel="noreferrer">
+      <td className={styles.linkRow}>
+        <Link
+          href={searchLink}
+          target='_blank'
+          rel="noreferrer"
+          className={styles.link}
+        >
           {name}
         </Link>
       </td>

@@ -1,17 +1,38 @@
+@import '../../style/utils';
+
 .row {
   transition: 0.2s linear;
 
   &:hover {
-    background-color: lightgray;
+    background-color: rgba(162, 189, 201, 0.2);
   }
 }
 
+.linkRow {
+  position: relative;
+
+}
+
+.link {
+  position: absolute;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  padding: $cellPadding;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 .old {
-  background-color: lightcoral;
+  background-color: rgba(205, 160, 230, 0.7);
 }
 
 .inLive {
-  background-color: lightblue;
+  background-color: rgba(162, 189, 201, 0.1);
 }
 
 .dateElem {
