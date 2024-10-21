@@ -16,6 +16,7 @@ export const useFetchEvents = (): Output => {
   const apiUrl = `${API_HOST}${API_REST_ENDPOINT}/events.ts`;
 
   console.log('🚨Rest API🚨', API_REST_ENDPOINT );
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
