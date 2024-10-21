@@ -32,7 +32,12 @@ export const useFetchEvents = (): Output => {
   const ENV = env('NEXT_PUBLIC_ENV');
   const API_HOST = env('NEXT_PUBLIC_API_HOST');
   const API_REST_ENDPOINT = env('NEXT_PUBLIC_API_REST_ENDPOINT');
-  const apiUrl = `${API_HOST}${API_REST_ENDPOINT}/events.ts`;
+
+  const isDevelopment = ENV === 'development';
+
+  const apiUrl = isDevelopment
+    ? `${API_HOST}${API_REST_ENDPOINT}/events.ts`
+    : `/api/src/rest/events`;
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -50,7 +55,7 @@ export const useFetchEvents = (): Output => {
     fetchEvents();
   }, [apiUrl]);
 
-  if (ENV === 'development') {
+  if (isDevelopment) {
     return { events: eventsFallback, loading: false };
   }
 
