@@ -47,14 +47,9 @@ export const getFormatedDateAndTime = (timestamp: Date) => {
   };
 }
 
-export const isEventInCurrentHour = (date: Date): boolean => {
+export const checkIsEventNotStarted = (date: Date): boolean => {
   const eventDate = new Date(date);
   const currentTime = new Date();
 
-  const eventHour = eventDate.getHours();
-  const currentHour = currentTime.getHours();
-
-  const isSameDay = eventDate.toDateString() === currentTime.toDateString();
-
-  return isSameDay && Math.abs(currentHour - eventHour) < 1;
+  return eventDate > currentTime;
 };

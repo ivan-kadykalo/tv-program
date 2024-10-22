@@ -15,7 +15,7 @@
   font-optical-sizing: auto;
 }
 
-@mixin textTitle {
+@mixin textButton {
   @extend %main-font-bold;
 
   font-size: $font-size-title;

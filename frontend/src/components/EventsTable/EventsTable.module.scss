@@ -1,4 +1,4 @@
-@import '../../style/utils';
+@import 'utils';
 
 .tableContainer {
   overflow-x: auto;
@@ -11,16 +11,15 @@
 
   & td {
     padding: $cellPadding;
-    border-bottom: 1px solid $table-line-color;
+    border-bottom: 1px solid $blue-6;
     vertical-align: middle;
   }
 
   & th {
     padding: $cellPadding;
-    border-top: 1px solid $table-line-color;
-    border-bottom: 1px solid $table-line-color;
+    border-bottom: 1px solid $blue-6;
 
-    background-color: rgba(162, 189, 201, 0.7);
+    background-color: $blue-2;
 
     text-align: center;
     vertical-align: middle;
@@ -31,7 +30,7 @@
   // Name
   th:nth-child(1),
   td:nth-child(1) {
-    min-width: 180px;
+    min-width: 150px;
   }
 
   th:nth-child(1) {
@@ -52,8 +51,8 @@
   // Channel
   th:nth-child(3), td:nth-child(3) {
     text-align: center;
-    min-width: 120px;
-    width: 120px;
+    min-width: 110px;
+    width: 110px;
   }
 }
 

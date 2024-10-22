@@ -1,4 +1,4 @@
-@import '../style/utils';
+@import 'utils';
 
 .page {
   @include textMain;
@@ -14,13 +14,6 @@
   gap: 20px;
 }
 
-
-.title {
-  @include textTitle;
-
-  padding: 40px 20px;
-  text-align: center;
-}
 
 .loaderContainer {
   margin-top: 200px;

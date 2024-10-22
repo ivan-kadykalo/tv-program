@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {ProgramType, TVEvent} from "@/utils/typedefs";
-import {env} from "next-runtime-env";
 
 interface Output {
   events: TVEvent[];
@@ -12,7 +11,7 @@ const eventsFallback = [
   {
     id: 5883,
     name: "Південний парк, 3 сезон, 10 с",
-    time: new Date("2024-10-21T14:55:00.000Z"),
+    time: new Date("2024-10-22T06:55:00.000Z"),
     channel: "Paramount Comedy",
     type: ProgramType.MOVIE
   },
@@ -29,9 +28,11 @@ export const useFetchEvents = (): Output => {
   const [events, setEvents] = useState<TVEvent[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const ENV = env('NEXT_PUBLIC_ENV');
-  const API_HOST = env('NEXT_PUBLIC_API_HOST');
-  const API_REST_ENDPOINT = env('NEXT_PUBLIC_API_REST_ENDPOINT');
+  const ENV = process.env.NEXT_PUBLIC_ENV;
+  const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
+  const API_REST_ENDPOINT = process.env.NEXT_PUBLIC_API_REST_ENDPOINT;
+
+  console.log('🚨🚨🚨', ENV, API_HOST, API_REST_ENDPOINT);
 
   const isDevelopment = ENV === 'development';
 

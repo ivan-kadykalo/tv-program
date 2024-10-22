@@ -1,4 +1,4 @@
-@import '../../style/utils';
+@import 'utils';
 
 @mixin mobile {
   @media (max-width: 640px) {
@@ -14,7 +14,7 @@
 }
 
 .cardWrapper {
-  @include textTitle;
+  @include textButton;
 
   min-height: 120px;
   width: 100%;
@@ -26,12 +26,13 @@
   border-radius: 8px;
   cursor: pointer;
 
-  transition: background 0.3s;
+  transition: background-color $transition-duration;
 
-  background: linear-gradient(144deg, rgba(142,208,173,0.3) 0%, rgba(205,160,230,0.3) 35%, rgba(48,142,185,0.3) 100%);
+  background-color: $blue-2;
+  box-shadow: inset gray 0 0 60px -12px;
 
   &:hover {
-    background: linear-gradient(144deg, rgba(142,208,173,0.6) 0%, rgba(205,160,230,0.6) 35%, rgba(48,142,185,0.6) 100%);
+    background-color: $blue-4;
   }
 
   @include mobile {
@@ -40,19 +41,5 @@
 }
 
 .selected {
-  background: linear-gradient(144deg, rgba(142,208,173,0.8) 0%, rgba(205,160,230,0.8) 35%, rgba(48,142,185,0.8) 100%);
-  background-size: 600% 600%;
-  animation: BGAnimation 4s ease infinite;
-}
-
-@keyframes BGAnimation {
-  0%{
-    background-position: 0 50%
-  }
-  50%{
-    background-position: 100% 50%
-  }
-  100%{
-    background-position: 0 50%
-  }
+  background-color: $blue-5;
 }

@@ -10,8 +10,8 @@ body {
 body {
   @include textMain;
 
-  color: $color-main;
-  background: $bg-color-main;
+  color: $gray-10;
+  background: $white;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
