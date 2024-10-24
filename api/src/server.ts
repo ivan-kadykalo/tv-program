@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 const loadFunctions = () => {
   const functionsDir = path.join(__dirname, 'rest');
 
+  console.log('Rest api endpoints are ready to use:' );
+
   fs.readdirSync(functionsDir).forEach((file) => {
     const functionHandler = require(path.join(functionsDir, file)).default;
 
@@ -32,5 +34,4 @@ loadFunctions();
 
 app.listen(PORT, () => {
   console.log(`API server running on: ${API_HOST}`);
-  console.log('Rest api endpoints are ready to use:' );
 });

@@ -1,6 +1,6 @@
 import { neonConfig } from '@neondatabase/serverless';
 
-if (process.env.ENV === 'development') {
+if (process.env.NEXT_PUBLIC_ENV === 'development') {
   neonConfig.wsProxy = (host) => `${host}:54330/v1`;
   neonConfig.useSecureWebSocket = false;
   neonConfig.pipelineTLS = false;

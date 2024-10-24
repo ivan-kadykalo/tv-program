@@ -2,6 +2,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { queryEvents } from "../controllers/db/queries";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  res.setHeader('Access-Control-Allow-Origin', process.env.NEXT_PUBLIC_FE_HOST || ''); // Replace with your actual frontend domain
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
   if (req.method === 'GET') {
     try {
       const events = await queryEvents();
