@@ -53,7 +53,7 @@ export class TVScraper {
               name: programName,
               type: type,
               channel: channelName,
-              time: new Date(`${date}T${time}+03:00`),
+              time: new Date(`${date}T${time}+02:00`),
             });
           });
       });
