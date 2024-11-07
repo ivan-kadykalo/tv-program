@@ -1,16 +1,16 @@
-@import 'utils';
+@use 'utils';
 
 .row {
-  transition: $transition-duration linear;
+  transition: utils.$transition-duration linear;
 
   &:hover {
-    background-color: $gray-2;
+    background-color: utils.$gray-2;
   }
 }
 
 .linkRow {
   position: relative;
-  padding: $cellPadding;
+  padding: utils.$cellPadding;
 }
 
 .link {
@@ -24,11 +24,11 @@
 }
 
 .old {
-  background-color: $purple-2;
+  background-color: utils.$purple-2;
 }
 
 .notStarted {
-  background-color: $purple-1;
+  background-color: utils.$purple-1;
 }
 
 .dateElem {

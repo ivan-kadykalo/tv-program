@@ -1,7 +1,7 @@
-@import 'utils';
+@use 'utils';
 
 .page {
-  @include textMain;
+  @include utils.textMain;
 
   padding: 16px;
   min-height: 100svh;

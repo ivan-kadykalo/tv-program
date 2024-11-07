@@ -1,4 +1,4 @@
-@import 'utils';
+@use 'utils';
 
 @mixin mobile {
   @media (max-width: 640px) {
@@ -14,7 +14,7 @@
 }
 
 .cardWrapper {
-  @include textButton;
+  @include utils.textButton;
 
   min-height: 120px;
   width: 100%;
@@ -26,13 +26,13 @@
   border-radius: 8px;
   cursor: pointer;
 
-  transition: background-color $transition-duration;
+  transition: background-color utils.$transition-duration;
 
-  background-color: $blue-2;
+  background-color: utils.$blue-2;
   box-shadow: inset gray 0 0 60px -12px;
 
   &:hover {
-    background-color: $blue-4;
+    background-color: utils.$blue-4;
   }
 
   @include mobile {
@@ -41,5 +41,5 @@
 }
 
 .selected {
-  background-color: $blue-5;
+  background-color: utils.$blue-5;
 }

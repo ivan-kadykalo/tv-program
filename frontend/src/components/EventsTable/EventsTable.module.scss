@@ -1,4 +1,4 @@
-@import 'utils';
+@use 'utils';
 
 .tableContainer {
   overflow-x: auto;
@@ -10,21 +10,21 @@
   user-select: none;
 
   & td {
-    padding: $cellPadding;
-    border-bottom: 1px solid $blue-6;
+    padding: utils.$cellPadding;
+    border-bottom: 1px solid utils.$blue-6;
     vertical-align: middle;
   }
 
   & th {
-    padding: $cellPadding;
-    border-bottom: 1px solid $blue-6;
+    padding: utils.$cellPadding;
+    border-bottom: 1px solid utils.$blue-6;
 
-    background-color: $blue-2;
+    background-color: utils.$blue-2;
 
     text-align: center;
     vertical-align: middle;
 
-    font-weight: $font-weight-bold;
+    font-weight: utils.$font-weight-bold;
   }
 
   // Name

@@ -1,5 +1,5 @@
-@import 'reset';
-@import 'utils';
+@use 'reset';
+@use 'utils';
 
 html,
 body {
@@ -8,10 +8,10 @@ body {
 }
 
 body {
-  @include textMain;
+  @include utils.textMain;
 
-  color: $gray-10;
-  background: $white;
+  color: utils.$gray-10;
+  background: utils.$white;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
