@@ -5,8 +5,13 @@
     "concurrently": "^9.0.1"
   },
   "scripts": {
+    "start:fe-local": "cd frontend && npm run dev-local",
     "start:fe": "cd frontend && npm run dev",
+    "start:api-local": "cd api && npm run dev-local",
     "start:api": "cd api && npm run dev",
-    "start": "concurrently \"npm run start:fe\" \"npm run start:api\""
+    "start:db": "docker-compose up -d",
+    "start-local": "concurrently \"npm run start:fe-local\" \"npm run start:api-local\"",
+    "start": "concurrently \"npm run start:fe\" \"npm run start:api\"",
+    "stop:db": "docker-compose down"
   }
 }

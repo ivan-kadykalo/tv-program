@@ -1,12 +1,13 @@
+version: '3.8'
+
 services:
   postgres:
     image: postgres
-    environment:
-      POSTGRES_PASSWORD: password
-    # Expose the Postgres port to the host machine,
-    # so you can inspect and administrate it
+    env_file:
+      - .env
     ports:
       - '54320:5432'
+
   pg_proxy:
     image: ghcr.io/neondatabase/wsproxy:latest
     environment:
@@ -14,42 +15,40 @@ services:
       ALLOW_ADDR_REGEX: '.*'
       LOG_TRAFFIC: 'true'
     ports:
-      # Expose the WebSocket proxy port to the host machine,
-      # this is where @vercel/postgres will connect
       - '54330:80'
     depends_on:
       - postgres
 
-#
-#version: '3.8'
-#
-#services:
-#  api:
-#    image: node:20-alpine
-#    container_name: api
-#    working_dir: /usr/src/api
-#    volumes:
-#      - ./api:/usr/src/api
-#      - /usr/src/api/node_modules
-#    build:
-#      context: ./api
-#    ports:
-#      - "5010:5010"
-#    environment:
-#      - ENV=development
-#    command: npm run dev
-#
-#  frontend:
-#    image: node:20-alpine
-#    container_name: frontend
-#    working_dir: /usr/src/frontend
-#    volumes:
-#      - ./frontend:/usr/src/frontend
-#      - /usr/src/frontend/node_modules
-#    build:
-#      context: ./frontend
-#    ports:
-#      - "3000:3000"
-#    environment:
-#      - ENV=development
-#    command: npm run dev
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: api
+    working_dir: /usr/src/app
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '5010:5010'
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    command: sh -c "npm install && npm run dev"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    working_dir: /usr/src/app
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    depends_on:
+      - api
+    command: sh -c "npm install && npm run dev"

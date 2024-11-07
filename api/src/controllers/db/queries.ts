@@ -22,6 +22,26 @@ const queryDB = async (query: string) => {
   }
 };
 
+export const createTableInDb = async () => {
+  const query = `
+    CREATE TABLE IF NOT EXISTS events (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255),
+      time TIMESTAMP,
+      channel VARCHAR(255),
+      type VARCHAR(255)
+    )
+  `;
+
+  try {
+    await queryDB(query);
+    console.log("Table created or already exists.");
+  } catch (error) {
+    console.error("Error creating table:", error);
+    throw new Error("Failed to create table.");
+  }
+}
+
 export const addEventsToDB = async (events: Event[]) => {
   try {
     const values = events.map(({ name, type, channel, time}) => {
@@ -66,3 +86,4 @@ export const cleanOldRecordsFromDB = async () => {
 
   return await queryDB(query);
 }
+
