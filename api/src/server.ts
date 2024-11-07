@@ -9,7 +9,7 @@ const app = express();
 const scraper = new TVScraper();
 
 const PORT = process.env.API_PORT;
-const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
+const API_HOST = process.env.API_HOST;
 const API_REST_ENDPOINT = process.env.NEXT_PUBLIC_API_REST_ENDPOINT;
 
 app.use(bodyParser.json());
