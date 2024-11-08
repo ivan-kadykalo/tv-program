@@ -1,34 +1,35 @@
+"use client";
+
 import React, {FC} from "react";
 import styles from './Navigation.module.scss';
 import cn from "classnames";
-import {ProgramType} from "@/utils/typedefs";
-import {getTabName} from "@/utils/helpers";
+import Link from "next/link";
+import { ROUTES } from "@/utils/routes";
+import { usePathname } from "next/navigation";
 
-interface Props {
-  programType: ProgramType;
-  setProgramType: (type: ProgramType) => void;
-}
+export const Navigation: FC = () => {
 
-export const Navigation: FC<Props> = (props) => {
-  const { programType, setProgramType } = props;
-
-  const programTypes = Object.values(ProgramType);
+  const activeRoute = usePathname();
 
   return (
-    <nav className={styles.typesSection}>
-      {programTypes.map((type) => (
-        <button
-          key={type}
-          onClick={() => setProgramType(type)}
-          className={cn(styles.cardWrapper, {
-            [styles.selected]: type === programType,
-            [styles.movie]: type === ProgramType.MOVIE,
-            [styles.cartoon]: type === ProgramType.CARTOON,
-          })}
-        >
-          {getTabName(type)}
-        </button>
-      ))}
+    <nav className={styles.navigation}>
+      <Link
+        href={ROUTES.MOVIES}
+        className={cn(styles.button, {
+          [styles.selected]: activeRoute === ROUTES.MOVIES,
+        })}
+      >
+        Фільми
+      </Link>
+
+      <Link
+        href={ROUTES.CARTOONS}
+        className={cn(styles.button, {
+          [styles.selected]: activeRoute === ROUTES.CARTOONS,
+        })}
+      >
+        Мультфільми
+      </Link>
     </nav>
   )
 }
