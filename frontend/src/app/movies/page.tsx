@@ -1,17 +1,13 @@
-import React, { FC } from "react";
+import React from "react";
 import { EventsTable } from "@/components/EventsTable/EventsTable";
 import { ProgramType } from "@/utils/typedefs";
-import {fetchEvents} from "@/utils/fetch";
+import { fetchEvents } from "@/utils/fetch";
 
-const Page: FC = async () => {
+const Page = async () => {
   const events = await fetchEvents(ProgramType.MOVIE);
 
   return (
-    <div>
-      <h1>Movies</h1>
-
-      <EventsTable events={events} />
-    </div>
+    <EventsTable events={events} />
   );
 }
 

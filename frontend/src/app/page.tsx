@@ -1,11 +1,11 @@
-import styles from "./page.module.scss";
 import React, { FC } from "react";
+import styles from "@/app/page.module.scss";
 
 const Page: FC = async () => {
   return (
-    <div>
-      <h1>Select what to see</h1>
-    </div>
+    <h1 className={styles.title}>
+      Вибери що подивитись
+    </h1>
   );
 }
 

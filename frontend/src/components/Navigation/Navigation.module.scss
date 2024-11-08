@@ -6,14 +6,14 @@
   }
 }
 
-.typesSection {
+.navigation {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   justify-content: center;
 }
 
-.cardWrapper {
+.button {
   @include utils.textButton;
 
   min-height: 120px;
@@ -29,7 +29,6 @@
   transition: background-color utils.$transition-duration;
 
   background-color: utils.$blue-2;
-  box-shadow: inset gray 0 0 60px -12px;
 
   &:hover {
     background-color: utils.$blue-4;

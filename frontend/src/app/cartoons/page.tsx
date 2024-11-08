@@ -7,11 +7,7 @@ const Page: FC = async () => {
   const events = await fetchEvents(ProgramType.CARTOON);
 
   return (
-    <div>
-      <h1>Cartoons</h1>
-
-      <EventsTable events={events} />
-    </div>
+    <EventsTable events={events} />
   );
 }
 

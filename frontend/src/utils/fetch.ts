@@ -1,11 +1,16 @@
 import {ProgramType, TVEvent} from "@/utils/typedefs";
 
-export const fetchEvents = async (programType: ProgramType) => {
+export const fetchEvents = async (programType?: ProgramType) => {
   const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
   const API_REST_ENDPOINT = process.env.NEXT_PUBLIC_API_REST_ENDPOINT;
-  const apiUrl = `${API_HOST}${API_REST_ENDPOINT}/events.ts`;
+  const apiUrlBase = `${API_HOST}${API_REST_ENDPOINT}/events.ts`;
 
-  let events: TVEvent[] | any[] = [];
+  const queryParams = programType
+    ? `?type=${programType}`
+    : '';
+  const apiUrl = `${apiUrlBase}${queryParams}`;
+
+  let events: TVEvent[] = [];
 
   try {
     const response = await fetch(apiUrl, { cache: 'no-store' });
@@ -15,6 +20,5 @@ export const fetchEvents = async (programType: ProgramType) => {
     console.error('🚨', 'Error while fetching events:', error);
   }
 
-  // TODO: fetch needed type instead of filtering
-  return events.filter((event: TVEvent) => event.type === programType);
+  return events;
 }

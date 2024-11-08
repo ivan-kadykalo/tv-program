@@ -1,6 +1,6 @@
 @use 'utils';
 
-.page {
+.pageBody {
   @include utils.textMain;
 
   padding: 16px;
@@ -9,7 +9,24 @@
   max-width: 800px;
   margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  //background: linear-gradient(270deg, #accdd9, #d1dfbf);
+  //background-size: 400% 400%;
+  //
+  //animation: bgAnimation 10s ease infinite;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  @include utils.pageTitle;
+
+  text-align: center;
+}
+
+@keyframes bgAnimation {
+  0% { background-position: 0 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0 50% }
 }
