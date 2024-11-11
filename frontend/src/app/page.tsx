@@ -1,12 +1,49 @@
-import React, { FC } from "react";
-import styles from "@/app/page.module.scss";
+"use client";
 
-const Page: FC = async () => {
+import React, {FC, Suspense} from "react";
+import styles from "@/app/page.module.scss";
+import { EventsTable } from "@/components/EventsTable/EventsTable";
+import { Navigation } from "@/components/Navigation/Navigation";
+import cn from "classnames";
+import { useEvents, useGetCurrentPageType } from "@/utils/hooks";
+import { ProgramType } from "@/utils/typedefs";
+
+const Page: FC = () => {
+  const pageType = useGetCurrentPageType();
+  const { events, loading } = useEvents(pageType);
+
   return (
-    <h1 className={styles.title}>
-      Вибери що подивитись
-    </h1>
+    <div
+      className={cn(styles.pageBody, {
+        [styles.first]: pageType === ProgramType.ALL,
+        [styles.second]: pageType === ProgramType.MOVIE,
+        [styles.third]: pageType === ProgramType.CARTOON,
+      })}
+    >
+      <main>
+        <h1 className={styles.title}>
+          Всі програми
+        </h1>
+
+        {loading
+          ? <p>Завантаження...</p>
+          : <EventsTable events={events} pageType={pageType}/>
+        }
+      </main>
+
+      <header className={styles.header}>
+        <Navigation pageType={pageType}/>
+      </header>
+    </div>
   );
 }
 
-export default Page;
+export default function PageWrapper() {
+  return (
+    <Suspense fallback={
+      <div>Завантаження...</div>
+    }>
+      <Page />
+    </Suspense>
+  );
+}

@@ -14,24 +14,3 @@
   font-style: normal;
   font-optical-sizing: auto;
 }
-
-@mixin textButton {
-  @extend %main-font-bold;
-
-  font-size: vars.$font-size-title;
-  color: #212631;
-}
-
-@mixin textMain {
-  @extend %main-font-regular;
-
-  font-size: vars.$font-size-regular;
-  color: #212631;
-}
-
-@mixin pageTitle {
-  @extend %main-font-bold;
-
-  font-size: vars.$font-size-title;
-  color: #212631;
-}

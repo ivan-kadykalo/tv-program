@@ -1,4 +1,5 @@
 export enum ProgramType {
+  ALL = 'ALL',
   MOVIE = 'MOVIE',
   CARTOON = 'CARTOON',
 }

@@ -3,33 +3,50 @@
 import React, {FC} from "react";
 import styles from './Navigation.module.scss';
 import cn from "classnames";
-import Link from "next/link";
-import { ROUTES } from "@/utils/routes";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { ProgramType } from "@/utils/typedefs";
+import { QUERY_TYPE } from "@/utils/constants";
 
-export const Navigation: FC = () => {
+interface Props {
+  pageType: ProgramType;
+}
 
-  const activeRoute = usePathname();
+export const Navigation: FC<Props> = (props) => {
+  const { pageType } = props;
+  const router = useRouter();
+
+  const handleClick = (programType: ProgramType) => {
+    router.push(`?${QUERY_TYPE}=${programType}`);
+  }
 
   return (
     <nav className={styles.navigation}>
-      <Link
-        href={ROUTES.MOVIES}
-        className={cn(styles.button, {
-          [styles.selected]: activeRoute === ROUTES.MOVIES,
+      <button
+        onClick={() => handleClick(ProgramType.ALL)}
+        className={cn(styles.button, styles.first, {
+          [styles.selected]: pageType === ProgramType.ALL,
+        })}
+      >
+        Всі
+      </button>
+
+      <button
+        onClick={() => handleClick(ProgramType.MOVIE)}
+        className={cn(styles.button, styles.second, {
+          [styles.selected]: pageType === ProgramType.MOVIE,
         })}
       >
         Фільми
-      </Link>
+      </button>
 
-      <Link
-        href={ROUTES.CARTOONS}
-        className={cn(styles.button, {
-          [styles.selected]: activeRoute === ROUTES.CARTOONS,
+      <button
+        onClick={() => handleClick(ProgramType.CARTOON)}
+        className={cn(styles.button, styles.third, {
+          [styles.selected]: pageType === ProgramType.CARTOON,
         })}
       >
         Мультфільми
-      </Link>
+      </button>
     </nav>
   )
 }

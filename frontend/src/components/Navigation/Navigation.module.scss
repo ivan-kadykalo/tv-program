@@ -1,44 +1,70 @@
-@use 'utils';
+@use "utils";
 
-@mixin mobile {
-  @media (max-width: 640px) {
-    @content;
+$button-height: 40px;
+$module-size: 8px;
+
+@mixin selectedButton ($color) {
+  &.selected {
+    color: utils.$gray-1;
+    background-color: rgba($color, 0.9);
+    border-color: $color;
+  }
+
+  &:hover {
+    color: utils.$gray-1;
+    background-color: rgba($color, 0.6);
+    border-color: rgba($color, 0.5);
   }
 }
 
 .navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  padding: utils.$module-size;
+  border-top-left-radius: utils.$module-size * 2;
+  border-top-right-radius: utils.$module-size * 2;
+
+  @include utils.glassBackground();
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: utils.$module-size;
   justify-content: center;
 }
 
 .button {
-  @include utils.textButton;
+  @extend %main-font-bold;
+  font-size: utils.$font-size-regular;
 
-  min-height: 120px;
+  min-height: $button-height;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: utils.$module-size;
 
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  @include utils.glassBackground();
+  border-radius: utils.$module-size;
+  color: utils.$gray-10;
 
-  transition: background-color utils.$transition-duration;
+  transition:
+    background-color utils.$transition-duration ease,
+    border utils.$transition-duration ease,
+    color utils.$transition-duration ease;
 
-  background-color: utils.$blue-2;
-
-  &:hover {
-    background-color: utils.$blue-4;
+  &.first {
+    @include selectedButton(utils.$pink-8);
   }
 
-  @include mobile {
-    min-height: 70px;
+  &.second {
+    @include selectedButton(utils.$blue-8);
   }
-}
 
-.selected {
-  background-color: utils.$blue-5;
+  &.third {
+    @include selectedButton(utils.$orange-8);
+  }
 }
