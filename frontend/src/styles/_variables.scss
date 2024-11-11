@@ -2,36 +2,13 @@
 $font-weight-regular: 400;
 $font-weight-bold: 600;
 
+$font-size-small: 14px;
 $font-size-regular: 16px;
-$font-size-title: 18px;
-$font-size-page-title: 20px;
+$font-size-title: 22px;
 
 $font-family-main: "Nunito", sans-serif;
 
 // COLORS
-// COLORS
-$blue-1: #d2e7f0;
-$blue-2: #b9d9e8;
-$blue-3: #a0cfe4;
-$blue-4: #86c2db;
-$blue-5: #70b3d1;
-$blue-6: #569fc4;
-$blue-7: #308eb9;
-$blue-8: #2a7ca1;
-$blue-9: #266d91;
-$blue-10: #1c4d63;
-
-$purple-1: #f2e4f8;
-$purple-2: #ebd4f4;
-$purple-3: #e3c1f0;
-$purple-4: #dab0ea;
-$purple-5: #d0a1e4;
-$purple-6: #c38ee0;
-$purple-7: #cda0e6;
-$purple-8: #b78cd4;
-$purple-9: #a078c1;
-$purple-10: #946cb0;
-
 $white: #ffffff;
 $black: #000000;
 
@@ -46,8 +23,41 @@ $gray-8: #808080;
 $gray-9: #595959;
 $gray-10: #333333;
 
+$orange-1: #FFF4E5;
+$orange-2: #FFE5CC;
+$orange-3: #FFD4B3;
+$orange-4: #FFC299;
+$orange-5: #FFAF80;
+$orange-6: #FF9966;
+$orange-7: #FF8552;
+$orange-8: #FF7040;
+$orange-9: #FF5C33;
+$orange-10: #FF471A;
+
+$pink-1: #FCE1E6;
+$pink-2: #F6B8D6;
+$pink-3: #F49BC6;
+$pink-4: #F080B6;
+$pink-5: #EC6AA6;
+$pink-6: #E55D96;
+$pink-7: #E14F86;
+$pink-8: #D94276;
+$pink-9: #D43666;
+$pink-10: #C92A56;
+
+$blue-1: #D1E9FF;
+$blue-2: #A9D4FF;
+$blue-3: #89BFFF;
+$blue-4: #70AAFF;
+$blue-5: #579CFF;
+$blue-6: #4788FF;
+$blue-7: #3873FF;
+$blue-8: #2A5EFF;
+$blue-9: #1D4ACD;
+$blue-10: #153C99;
+
 // SIZES
-$cellPadding: 8px;
+$module-size: 8px;
 
 // TIME
 $transition-duration: 300ms;

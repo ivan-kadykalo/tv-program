@@ -1,31 +1,53 @@
 @use 'utils';
 
 .pageBody {
-  @include utils.textMain;
-
-  padding: 16px;
+  position: relative;
+  padding:
+    utils.$module-size * 2
+    utils.$module-size
+    utils.$module-size * 11;
   min-height: 100svh;
 
   max-width: 800px;
   margin: 0 auto;
-
-  //background: linear-gradient(270deg, #accdd9, #d1dfbf);
-  //background-size: 400% 400%;
-  //
-  //animation: bgAnimation 10s ease infinite;
 }
 
-.header {
-  margin-bottom: 16px;
+.first {
+  background: linear-gradient(
+    135deg,
+    utils.$pink-2,
+    utils.$white,
+    utils.$pink-2,
+  );
+}
+
+.second {
+  background: linear-gradient(
+    135deg,
+    utils.$blue-2,
+    utils.$white,
+    utils.$blue-2,
+  );
+}
+
+.third {
+  background: linear-gradient(
+    135deg,
+    utils.$orange-4,
+    utils.$white,
+    utils.$orange-4,
+  );
 }
 
 .title {
-  @include utils.pageTitle;
+  @extend %main-font-bold;
+  font-size: utils.$font-size-title;
 
   text-align: center;
+  margin-bottom: 16px;
 }
 
-@keyframes bgAnimation {
+@keyframes gradientFlow {
   0% { background-position: 0 50% }
   50% { background-position: 100% 50% }
   100% { background-position: 0 50% }

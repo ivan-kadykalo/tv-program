@@ -3,11 +3,9 @@ import type { Metadata } from "next";
 import "@/styles/globals.scss";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import styles from "@/app/page.module.scss";
-import { Navigation } from "@/components/Navigation/Navigation";
 
 export const metadata: Metadata = {
-  title: "TV program",
+  title: "Телепрограма",
 };
 
 export default function RootLayout({
@@ -23,14 +21,8 @@ export default function RootLayout({
         </title>
       </head>
 
-      <body className={styles.pageBody}>
-        <header className={styles.header}>
-          <Navigation />
-        </header>
-
-        <main>
-          {children}
-        </main>
+      <body>
+        {children}
 
         <Analytics/>
         <SpeedInsights/>

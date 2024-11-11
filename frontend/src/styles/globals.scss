@@ -8,13 +8,9 @@ body {
 }
 
 body {
-  @include utils.textMain;
-
+  @extend %main-font-regular;
+  font-size: utils.$font-size-regular;
   color: utils.$gray-10;
-  background: utils.$white;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {

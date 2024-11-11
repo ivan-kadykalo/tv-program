@@ -1,58 +1,71 @@
 @use 'utils';
 
-.tableContainer {
-  overflow-x: auto;
-}
+$innerCellPadding: utils.$module-size / 2;
 
 .table {
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   user-select: none;
 
-  & td {
-    padding: utils.$cellPadding;
-    border-bottom: 1px solid utils.$blue-6;
-    vertical-align: middle;
+  border-radius: utils.$module-size;
+  overflow: hidden;
+
+  @include utils.glassBackground();
+
+  tr {
+    color: utils.$gray-10;
+    border: 2px solid rgba(utils.$white, 0.4);
   }
 
-  & th {
-    padding: utils.$cellPadding;
-    border-bottom: 1px solid utils.$blue-6;
+  th {
+    font-weight: utils.$font-weight-bold;
+    color: utils.$gray-1;
+  }
 
-    background-color: utils.$blue-2;
-
+  th,
+  td {
+    padding: utils.$module-size;
     text-align: center;
     vertical-align: middle;
-
-    font-weight: utils.$font-weight-bold;
+    word-wrap: break-word;
   }
 
   // Name
-  th:nth-child(1),
-  td:nth-child(1) {
-    min-width: 150px;
-  }
-
-  th:nth-child(1) {
-    text-align: center;
-  }
-
   td:nth-child(1) {
     text-align: left;
   }
 
+  th:nth-child(1),
+  td:nth-child(1) {
+    padding-right: $innerCellPadding;
+  }
+
   // Date
-  th:nth-child(2), td:nth-child(2) {
-    text-align: center;
-    min-width: 90px;
-    width: 90px;
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 72px;
+    padding-right: $innerCellPadding;
+    padding-left: $innerCellPadding;
   }
 
   // Channel
-  th:nth-child(3), td:nth-child(3) {
-    text-align: center;
-    min-width: 110px;
-    width: 110px;
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 96px;
+    padding-left: $innerCellPadding;
   }
 }
 
+.first thead > tr {
+  border-width: 2px;
+  @include utils.glassBackground(utils.$pink-9, 0.8);
+}
+
+.second thead > tr {
+  @include utils.glassBackground(utils.$blue-9, 0.8);
+}
+
+.third thead > tr {
+  @include utils.glassBackground(utils.$orange-8, 0.8);
+}
