@@ -5,14 +5,14 @@ import React, { FC } from "react";
 import {ProgramType, TVEvent} from "@/utils/typedefs";
 import { EventRow } from "@/components/EventRow/EventRow";
 import cn from "classnames";
-import {useGetCurrentPageType} from "@/utils/hooks";
 
 interface Props {
   events: TVEvent[];
+  pageType: ProgramType;
 }
 
-export const EventsTable: FC<Props> = ({ events }) => {
-  const pageType = useGetCurrentPageType();
+export const EventsTable: FC<Props> = (props) => {
+  const { events, pageType } = props;
 
   return (
     <table className={cn(styles.table, {

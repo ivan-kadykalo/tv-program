@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import {ProgramType, TVEvent} from '@/utils/typedefs';
-import {useSearchParams} from "next/navigation";
-import {QUERY_TYPE} from "@/utils/constants";
+import { ProgramType, TVEvent } from '@/utils/typedefs';
+import { useSearchParams } from "next/navigation";
+import { QUERY_TYPE } from "@/utils/constants";
 
 interface Output {
   events: TVEvent[];
@@ -48,7 +48,6 @@ export const useEvents = (pageType: ProgramType): Output => {
     loading
   };
 };
-
 
 export const useGetCurrentPageType = (): ProgramType => {
   const searchParams = useSearchParams();

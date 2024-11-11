@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, {FC, Suspense} from "react";
 import styles from "@/app/page.module.scss";
 import { EventsTable } from "@/components/EventsTable/EventsTable";
 import { Navigation } from "@/components/Navigation/Navigation";
@@ -27,15 +27,23 @@ const Page: FC = () => {
 
         {loading
           ? <p>Завантаження...</p>
-          : <EventsTable events={events}/>
+          : <EventsTable events={events} pageType={pageType}/>
         }
       </main>
 
       <header className={styles.header}>
-        <Navigation/>
+        <Navigation pageType={pageType}/>
       </header>
     </div>
   );
 }
 
-export default Page;
+export default function PageWrapper() {
+  return (
+    <Suspense fallback={
+      <div>Завантаження...</div>
+    }>
+      <Page />
+    </Suspense>
+  );
+}

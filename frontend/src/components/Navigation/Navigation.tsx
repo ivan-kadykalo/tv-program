@@ -6,11 +6,14 @@ import cn from "classnames";
 import { useRouter } from "next/navigation";
 import { ProgramType } from "@/utils/typedefs";
 import { QUERY_TYPE } from "@/utils/constants";
-import { useGetCurrentPageType } from "@/utils/hooks";
 
-export const Navigation: FC = () => {
+interface Props {
+  pageType: ProgramType;
+}
+
+export const Navigation: FC<Props> = (props) => {
+  const { pageType } = props;
   const router = useRouter();
-  const pageType = useGetCurrentPageType();
 
   const handleClick = (programType: ProgramType) => {
     router.push(`?${QUERY_TYPE}=${programType}`);
