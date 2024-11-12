@@ -15,27 +15,27 @@
 .first {
   background: linear-gradient(
     135deg,
-    utils.$pink-2,
+    rgba(utils.$pink-2, 0.5),
     utils.$white,
-    utils.$pink-2,
+    rgba(utils.$pink-2, 0.5),
   );
 }
 
 .second {
   background: linear-gradient(
     135deg,
-    utils.$blue-2,
+    rgba(utils.$blue-2, 0.5),
     utils.$white,
-    utils.$blue-2,
+    rgba(utils.$blue-2, 0.5),
   );
 }
 
 .third {
   background: linear-gradient(
     135deg,
-    utils.$orange-4,
+    rgba(utils.$orange-4, 0.5),
     utils.$white,
-    utils.$orange-4,
+    rgba(utils.$orange-4, 0.5),
   );
 }
 

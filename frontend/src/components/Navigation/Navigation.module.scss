@@ -5,15 +5,13 @@ $module-size: 8px;
 
 @mixin selectedButton ($color) {
   &.selected {
+    @include utils.background($color, 0.9);
     color: utils.$gray-1;
-    background-color: rgba($color, 0.9);
-    border-color: $color;
   }
 
   &:hover {
+    @include utils.background($color, 0.6);
     color: utils.$gray-1;
-    background-color: rgba($color, 0.6);
-    border-color: rgba($color, 0.5);
   }
 }
 
@@ -25,6 +23,8 @@ $module-size: 8px;
   z-index: 1;
 
   padding: utils.$module-size;
+  padding-bottom: calc(env(safe-area-inset-bottom) + var(utils.$module-size));
+
   border-top-left-radius: utils.$module-size * 2;
   border-top-right-radius: utils.$module-size * 2;
 
@@ -46,8 +46,10 @@ $module-size: 8px;
   justify-content: center;
   align-items: center;
   padding: utils.$module-size;
+  cursor: pointer;
 
-  @include utils.glassBackground();
+  @include utils.background(utils.$white, 0.6);
+
   border-radius: utils.$module-size;
   color: utils.$gray-10;
 

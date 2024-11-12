@@ -5,20 +5,15 @@ $innerCellPadding: utils.$module-size / 2;
 .table {
   table-layout: fixed;
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   user-select: none;
 
   border-radius: utils.$module-size;
   overflow: hidden;
+  color: utils.$gray-10;
 
-  @include utils.glassBackground();
-
-  tr {
-    color: utils.$gray-10;
-    border: 2px solid rgba(utils.$white, 0.4);
-  }
-
-  th {
+  thead {
     font-weight: utils.$font-weight-bold;
     color: utils.$gray-1;
   }
@@ -55,17 +50,40 @@ $innerCellPadding: utils.$module-size / 2;
     width: 96px;
     padding-left: $innerCellPadding;
   }
-}
 
-.first thead > tr {
-  border-width: 2px;
-  @include utils.glassBackground(utils.$pink-9, 0.8);
-}
+  &.first {
+    border: 1px solid rgba(utils.$pink-9, 0.3);
 
-.second thead > tr {
-  @include utils.glassBackground(utils.$blue-9, 0.8);
-}
+    tr:not(:last-child) td {
+      border-bottom: 1px solid rgba(utils.$pink-9, 0.3);
+    }
 
-.third thead > tr {
-  @include utils.glassBackground(utils.$orange-8, 0.8);
+    thead > tr {
+      @include utils.background(utils.$pink-9, 0.8);
+    }
+  }
+
+  &.second {
+    border: 1px solid rgba(utils.$blue-9, 0.3);
+
+    tr:not(:last-child) td {
+      border-bottom: 1px solid rgba(utils.$blue-9, 0.3);
+    }
+
+    thead > tr {
+      @include utils.background(utils.$blue-9, 0.8);
+    }
+  }
+
+  &.third {
+    border: 1px solid rgba(utils.$orange-8, 0.3);
+
+    tr:not(:last-child) td {
+      border-bottom: 1px solid rgba(utils.$orange-8, 0.3);
+    }
+
+    thead > tr {
+      @include utils.background(utils.$orange-8, 0.8);
+    }
+  }
 }

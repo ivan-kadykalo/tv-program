@@ -1,3 +1,5 @@
+import {ProgramType} from "@/utils/typedefs";
+
 export const getSearchLink = (name: string) => (
   `https://www.google.com/search?q=${name.replaceAll(' ', '+')}+онлайн+українською`
 );
@@ -28,3 +30,16 @@ export const checkIsEventNotStarted = (date: Date): boolean => {
 
   return eventDate > currentTime;
 };
+
+
+export const getPageTitle = (programType: ProgramType) => {
+  switch (programType) {
+    case ProgramType.MOVIE:
+      return 'Фільми';
+    case ProgramType.CARTOON:
+      return 'Мультфільми';
+    case ProgramType.ALL:
+    default:
+      return 'Всі програми';
+  }
+}

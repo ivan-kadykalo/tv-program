@@ -1,8 +1,12 @@
 @use "variables";
 
-@mixin glassBackground ($color: variables.$white, $opacity: 0.2) {
+@mixin background ($color: variables.$white, $opacity: 0.2) {
   background-color: rgba($color, $opacity);
   border: 1px solid rgba($color, $opacity + 0.1);
   box-shadow: 0 4px 30px rgba($color, 0.1);
+}
+
+@mixin glassBackground ($color: variables.$white, $opacity: 0.2) {
+  @include background($color, $opacity);
   backdrop-filter: blur(10px);
 }

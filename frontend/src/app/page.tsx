@@ -7,6 +7,8 @@ import { Navigation } from "@/components/Navigation/Navigation";
 import cn from "classnames";
 import { useEvents, useGetCurrentPageType } from "@/utils/hooks";
 import { ProgramType } from "@/utils/typedefs";
+import {getPageTitle} from "@/utils/helpers";
+import {Loader} from "@/components/Loader/Loader";
 
 const Page: FC = () => {
   const pageType = useGetCurrentPageType();
@@ -22,11 +24,11 @@ const Page: FC = () => {
     >
       <main>
         <h1 className={styles.title}>
-          Всі програми
+          {getPageTitle(pageType)}
         </h1>
 
         {loading
-          ? <p>Завантаження...</p>
+          ? <Loader />
           : <EventsTable events={events} pageType={pageType}/>
         }
       </main>
@@ -41,7 +43,7 @@ const Page: FC = () => {
 export default function PageWrapper() {
   return (
     <Suspense fallback={
-      <div>Завантаження...</div>
+      <Loader />
     }>
       <Page />
     </Suspense>

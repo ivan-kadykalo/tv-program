@@ -1,5 +1,3 @@
-"use client";
-
 import React, { FC } from "react";
 import styles from "./EventRow.module.scss";
 import {
@@ -9,7 +7,6 @@ import {
 } from "@/utils/helpers";
 import {ProgramType, TVEvent} from "@/utils/typedefs";
 import cn from "classnames";
-import { useRouter } from "next/navigation";
 
 interface Props {
   event: TVEvent;
@@ -24,10 +21,8 @@ export const EventRow: FC<Props> = ({ event, pageType }) => {
   const searchLink = getSearchLink(name);
   const isEventNotStarted = checkIsEventNotStarted(dateTime);
 
-  const router = useRouter();
-
   const handleRowClick = () => {
-    router.push(searchLink);
+    window.open(searchLink, '_blank');
   };
 
   return (
