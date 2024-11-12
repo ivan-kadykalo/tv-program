@@ -13,6 +13,8 @@
 }
 
 .notStarted {
+  position: relative;
+
   &:before {
     content: '';
     display: block;
