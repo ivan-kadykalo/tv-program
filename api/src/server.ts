@@ -2,11 +2,12 @@ import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import fs from 'fs';
 import path from 'path';
-import { TVScraper } from "./controllers/tv-scrapper/TVScraper";
-import {createTableInDb} from "./controllers/db/queries";
+import { Scraper } from "./services/scrapper/Scraper";
+import { DB } from "./services/db/DB";
 
 const app = express();
-const scraper = new TVScraper();
+const scraper = new Scraper();
+const db = new DB();
 
 const PORT = process.env.API_PORT;
 const API_HOST = process.env.API_HOST;
@@ -35,7 +36,7 @@ const initApiRestRoutes = () => {
 
 const runServer = async () => {
   try {
-    await createTableInDb();
+    await db.createTable();
     await scraper.processScrapping();
     initApiRestRoutes();
   } catch (error) {

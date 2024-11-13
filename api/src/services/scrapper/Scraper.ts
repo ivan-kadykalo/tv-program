@@ -2,12 +2,13 @@ import axios from 'axios';
 
 const cheerio = require('cheerio');
 
-import { ERRORS, ProgramType, Event } from "./TVScraper.typedefs";
-import { BASE_URL, PERIOD } from "./TVScraper.constants";
-import { addEventsToDB } from "../db/queries";
+import { ERRORS, ProgramType, Event } from "./Scraper.typedefs";
+import { BASE_URL, PERIOD } from "./Scraper.constants";
+import { DB } from "../db/DB";
 
+const db = new DB();
 
-export class TVScraper {
+export class Scraper {
   public async processScrapping(date?: string): Promise<void> {
     const today = new Date().toISOString().split('T')[0];
 
@@ -15,7 +16,7 @@ export class TVScraper {
       const events = await this.scrapeTvScheduleByDate(date || today);
 
       if (events?.length) {
-        await addEventsToDB(events);
+        await db.addEvents(events);
       }
     } catch (error) {
       console.error(ERRORS.SCRAPING_FAILED, error);
