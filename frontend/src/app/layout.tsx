@@ -15,18 +15,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <title>
-          TV program
-        </title>
-      </head>
+    <head>
+      <title>
+        TV program
+      </title>
 
-      <body>
-        {children}
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+      />
+    </head>
 
-        <Analytics/>
-        <SpeedInsights/>
-      </body>
+    <body>
+    {children}
+
+    <Analytics/>
+    <SpeedInsights/>
+    </body>
     </html>
   );
 }
