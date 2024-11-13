@@ -7,8 +7,7 @@
   right: 0;
   z-index: 1;
 
-  padding: utils.$module-size;
-  padding-bottom: calc(env(safe-area-inset-bottom, utils.$module-size * 2) + var(utils.$module-size));
+  padding: utils.$module-size utils.$module-size utils.$module-size * 2;
 
 
   border-top-left-radius: utils.$module-size * 2;
