@@ -12,6 +12,17 @@ Also it's support a google search, so you can quickly find what you want in the 
 ### Search with Google in one click
 ![Part2](https://github.com/user-attachments/assets/071e0193-243b-432c-9e1f-6b5cfa80da0e)
 
+## Additional info
+Project is deployed on Vercel
+
+Production link: https://tv-pr.vercel.app/
+
+## Used technologies:
+* Typescript (Frontend, Server and API - SLS functions)
+* SCSS (modular system)
+* Docker (DB, API and FE containers)
+* PostgreSQL (for local and production databases)
+  
 ## How to run the app locally
 ### Prerequisites:
 * Installed docker
