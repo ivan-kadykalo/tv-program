@@ -1,7 +1,7 @@
-import {ProgramType} from "@/utils/typedefs";
+import {SEARCH_LINK_BASE} from "@/utils/constants";
 
 export const getSearchLink = (name: string) => (
-  `https://www.google.com/search?q=${name.replaceAll(' ', '+')}+онлайн+українською`
+  `${SEARCH_LINK_BASE}?q=${name.replaceAll(' ', '+')}+онлайн+українською`
 );
 
 export const getFormatedDateAndTime = (timestamp: Date) => {
@@ -30,16 +30,3 @@ export const checkIsEventNotStarted = (date: Date): boolean => {
 
   return eventDate > currentTime;
 };
-
-
-export const getPageTitle = (programType: ProgramType) => {
-  switch (programType) {
-    case ProgramType.MOVIE:
-      return 'Фільми';
-    case ProgramType.CARTOON:
-      return 'Мультфільми';
-    case ProgramType.ALL:
-    default:
-      return 'Всі програми';
-  }
-}

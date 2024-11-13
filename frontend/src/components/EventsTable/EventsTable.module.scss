@@ -1,6 +1,11 @@
 @use 'utils';
 
 $innerCellPadding: utils.$module-size / 2;
+$headBGOpacity: 0.8;
+
+$borderOpacity: 0.3;
+$borderWidth: 1px;
+$borderStyle: solid;
 
 .table {
   table-layout: fixed;
@@ -52,38 +57,38 @@ $innerCellPadding: utils.$module-size / 2;
   }
 
   &.first {
-    border: 1px solid rgba(utils.$pink-9, 0.3);
+    border: $borderWidth $borderStyle rgba(utils.$pink-9, $borderOpacity);
 
     tr:not(:last-child) td {
-      border-bottom: 1px solid rgba(utils.$pink-9, 0.3);
+      border-bottom: $borderWidth $borderStyle rgba(utils.$pink-9, $borderOpacity);
     }
 
     thead > tr {
-      @include utils.background(utils.$pink-9, 0.8);
+      @include utils.background(utils.$pink-9, $headBGOpacity);
     }
   }
 
   &.second {
-    border: 1px solid rgba(utils.$blue-9, 0.3);
+    border: $borderWidth $borderStyle rgba(utils.$blue-9, $borderOpacity);
 
     tr:not(:last-child) td {
-      border-bottom: 1px solid rgba(utils.$blue-9, 0.3);
+      border-bottom: $borderWidth $borderStyle rgba(utils.$blue-9, $borderOpacity);
     }
 
     thead > tr {
-      @include utils.background(utils.$blue-9, 0.8);
+      @include utils.background(utils.$blue-9, $headBGOpacity);
     }
   }
 
   &.third {
-    border: 1px solid rgba(utils.$orange-8, 0.3);
+    border: $borderWidth $borderStyle rgba(utils.$orange-8, $borderOpacity);
 
     tr:not(:last-child) td {
-      border-bottom: 1px solid rgba(utils.$orange-8, 0.3);
+      border-bottom: $borderWidth $borderStyle rgba(utils.$orange-8, $borderOpacity);
     }
 
     thead > tr {
-      @include utils.background(utils.$orange-8, 0.8);
+      @include utils.background(utils.$orange-8, $headBGOpacity);
     }
   }
 }

@@ -13,6 +13,12 @@ interface Props {
   pageType: ProgramType;
 }
 
+const getColorMode: Record<ProgramType, string> = {
+  [ProgramType.ALL]: styles.first,
+  [ProgramType.MOVIE]: styles.second,
+  [ProgramType.CARTOON]: styles.third,
+};
+
 export const EventRow: FC<Props> = ({ event, pageType }) => {
   const { name, channel, time: dateTime } = event;
 
@@ -30,11 +36,8 @@ export const EventRow: FC<Props> = ({ event, pageType }) => {
       onClick={handleRowClick}
       className={styles.row}
     >
-      <td className={cn({
+      <td className={cn(getColorMode[pageType], {
         [styles.notStarted]: isEventNotStarted,
-        [styles.first]: pageType === ProgramType.ALL,
-        [styles.second]: pageType === ProgramType.MOVIE,
-        [styles.third]: pageType === ProgramType.CARTOON,
       })}>
         {name}
       </td>

@@ -1,0 +1,48 @@
+@use "utils";
+
+@mixin selectedButton ($color) {
+  &.selected {
+    @include utils.background($color, 0.9);
+    color: utils.$gray-1;
+  }
+
+  &:hover {
+    @include utils.background($color, 0.6);
+    color: utils.$gray-1;
+  }
+}
+
+.button {
+  @extend %main-font-bold;
+  font-size: utils.$font-size-regular;
+
+  min-height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: utils.$module-size;
+  cursor: pointer;
+
+  @include utils.background(utils.$white, 0.6);
+
+  border-radius: utils.$module-size;
+  color: utils.$gray-10;
+
+  transition:
+    background-color utils.$transition-duration ease,
+    border utils.$transition-duration ease,
+    color utils.$transition-duration ease;
+
+  &.first {
+    @include selectedButton(utils.$pink-8);
+  }
+
+  &.second {
+    @include selectedButton(utils.$blue-8);
+  }
+
+  &.third {
+    @include selectedButton(utils.$orange-8);
+  }
+}

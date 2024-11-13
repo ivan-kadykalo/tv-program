@@ -11,15 +11,20 @@ interface Props {
   pageType: ProgramType;
 }
 
+const getColorMode: Record<ProgramType, string> = {
+  [ProgramType.ALL]: styles.first,
+  [ProgramType.MOVIE]: styles.second,
+  [ProgramType.CARTOON]: styles.third,
+};
+
 export const EventsTable: FC<Props> = (props) => {
-  const { events, pageType } = props;
+  const {
+    events,
+    pageType,
+  } = props;
 
   return (
-    <table className={cn(styles.table, {
-      [styles.first]: pageType === ProgramType.ALL,
-      [styles.second]: pageType === ProgramType.MOVIE,
-      [styles.third]: pageType === ProgramType.CARTOON,
-    })}>
+    <table className={cn(styles.table, getColorMode[pageType])}>
       <thead>
         <tr>
           <th>Назва</th>
