@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Телепрограма",
+  manifest: "/webmanifest",
 };
 
 export default function RootLayout({
