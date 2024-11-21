@@ -14,7 +14,8 @@ export default {
   ...withPWA({
     pwa: {
       dest: 'public',
-      disable: process.env.NEXT_PUBLIC_ENV === 'development',
+      register: true,
+      skipWaiting: true,
     },
   }),
 };
