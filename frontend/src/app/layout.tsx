@@ -21,6 +21,9 @@ export default function RootLayout({
         Телепрограма
       </title>
 
+      <link rel="icon" href="/favicon.ico"/>
+      <link rel="apple-touch-icon" href="/images/android-chrome-192x192.png"/>
+
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, viewport-fit=cover"
