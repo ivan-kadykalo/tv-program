@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Телепрограма",
   description: "Які фільми та мультфільми були в трансляції на тв протягом 10 днів",
   generator: "Next.js",
-  manifest: "/manifest.json",
+  manifest: "/webmanifest",
   icons: [
     { rel: "apple-touch-icon", url: "icons/apple-touch-icon.png" },
     { rel: "icon", url: "icons/favicon.ico" },

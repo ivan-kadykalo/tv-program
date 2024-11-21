@@ -36,7 +36,7 @@ out
 .eslintcache
 .cache/
 coverage/
-frontend/public/
+#frontend/public/
 static/
 
 # Temporary files
