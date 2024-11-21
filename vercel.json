@@ -14,6 +14,14 @@
     { "src": "/api/(.*)", "dest": "/api/src/rest/$1" },
     { "src": "/(.*)", "dest": "frontend/$1" }
   ],
+  "headers": [
+    {
+      "source": "/manifest.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ],
   "crons": [
     {
       "path": "/api/src/rest/scrape.ts",
