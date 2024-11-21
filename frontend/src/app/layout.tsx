@@ -6,10 +6,12 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Телепрограма",
-  manifest: "/webmanifest",
+  description: "Які фільми та мультфільми були в трансляції на тв протягом 10 днів",
+  generator: "Next.js",
+  manifest: "/manifest.json",
   icons: [
-    { rel: "apple-touch-icon", url: "/apple-touch-icon.png" },
-    { rel: "icon", url: "/favicon.ico" },
+    { rel: "apple-touch-icon", url: "icons/apple-touch-icon.png" },
+    { rel: "icon", url: "icons/favicon.ico" },
   ]
 };
 
@@ -34,7 +36,7 @@ export default function RootLayout({
     <body>
     {children}
 
-    <img src="/favicon.ico" alt="/apple-touch-icon.png"/>
+    <img src="/icons/favicon.ico" alt="/apple-touch-icon.png"/>
 
     <Analytics/>
     <SpeedInsights/>
