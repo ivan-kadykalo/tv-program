@@ -7,6 +7,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata: Metadata = {
   title: "Телепрограма",
   manifest: "/webmanifest",
+  icons: [
+    { rel: "apple-touch-icon", url: "/apple-touch-icon.png" },
+    { rel: "icon", url: "/favicon.ico" },
+  ]
 };
 
 export default function RootLayout({
@@ -20,9 +24,6 @@ export default function RootLayout({
       <title>
         Телепрограма
       </title>
-
-      <link rel="icon" href="/favicon.ico"/>
-      <link rel="apple-touch-icon" href="/images/android-chrome-192x192.png"/>
 
       <meta
         name="viewport"
