@@ -34,6 +34,8 @@ export default function RootLayout({
     <body>
     {children}
 
+    <img src="/favicon.ico" alt="/apple-touch-icon.png"/>
+
     <Analytics/>
     <SpeedInsights/>
     </body>
