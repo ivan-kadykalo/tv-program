@@ -13,18 +13,37 @@ $loader-size: 40px;
   position: absolute;
   left: 50%;
   top: 50%;
-  background: utils.$white;
+  background-color: utils.$white;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(1);
 
-  animation: bounce 1s ease-in infinite;
+  animation:
+    bounce 1s ease-in infinite,
+    colorChange 3s ease-in infinite;
 }
 @keyframes bounce {
-  0% ,
-  100% {
+  0% {
     transform: translate(-50%, -50%) scale(0.75);
   }
   50% {
     transform: translate(-50%, -50%) scale(1.4);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: utils.$pink-4;
+  }
+  30% {
+    background-color: utils.$blue-4;
+  }
+  70% {
+    background-color: utils.$orange-4;
+  }
+  100% {
+    background-color: utils.$pink-4;
   }
 }

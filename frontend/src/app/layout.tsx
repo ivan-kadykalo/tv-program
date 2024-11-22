@@ -8,10 +8,11 @@ export const metadata: Metadata = {
   title: "Телепрограма",
   description: "Які фільми та мультфільми були в трансляції на тв протягом 10 днів",
   generator: "Next.js",
-  manifest: "/manifest.json",
+  manifest: "/webmanifest",
   icons: [
-    { rel: "apple-touch-icon", url: "icons/apple-touch-icon.png" },
+    { rel: "apple-touch-icon", url: "icons/icon-180x180.png" },
     { rel: "icon", url: "icons/favicon.ico" },
+    { rel: "apple-touch-startup-image", url: "icons/icon-512x512.png" },
   ]
 };
 
@@ -20,6 +21,13 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(() => console.log('Service Worker registered successfully.'))
+      .catch((error) => console.error('Service Worker registration failed:', error));
+  }
+
   return (
     <html lang="uk-UA">
     <head>
