@@ -1,10 +1,20 @@
 # TV Program 2.0
 
 ## About
-This is a simple tv-program app, created to quickly find out what is on TV right now. It's filtering TV programs and keeping only Movies and Cartoons (removing all other programs, like 'news', "talk shows" etc...).
+This is a simple tv-program app, created to quickly find out what is on TV right now and what was during the last 10 days. 
+It filters TV programs and keeps only Movies and Cartoons (removing all other programs, like 'news', "talk shows" etc...).
 
-It's created to use along with smart tv programs, like Kyivstar TV, Megogo, etc. where you watch shows in record. 
-Also it's support a google search, so you can quickly find what you want in the internet by one click.
+It's designed to be used with smart TV programs, such as Kyivstar TV, Megogo, etc., where you can watch shows on record. 
+Also, it supports Google searches, so you can quickly find what you want on the Internet with one click.
+
+This website uses PWA technology so that you can install the APP on your mobile.
+* Open the website on your mobile
+* On IOS (Safari only)
+  * "Share"
+  * "Add to Home screen"
+* On Android
+  * "More" or 3 dots
+  * "Add to Home screen"
 
 ### Programs filtering
 ![Part1](https://github.com/user-attachments/assets/667fed19-f8b2-4a97-ba6d-ec05586519d7)
@@ -13,14 +23,14 @@ Also it's support a google search, so you can quickly find what you want in the 
 ![Part2](https://github.com/user-attachments/assets/071e0193-243b-432c-9e1f-6b5cfa80da0e)
 
 ## Additional info
-Project is deployed on Vercel
+The project is deployed on Vercel
 
 Production link: https://tv-pr.vercel.app/
 
 ## Used technologies:
-* Typescript (Frontend, Server and API - SLS functions)
+* Typescript (Frontend, Server, and API - SLS functions)
 * SCSS (modular system)
-* Docker (DB, API and FE containers)
+* Docker (DB, AP,I and FE containers)
 * PostgreSQL (for local and production databases)
   
 ## How to run the app locally
@@ -29,10 +39,10 @@ Production link: https://tv-pr.vercel.app/
 
 ### Steps:
 * Open the root folder
-  * Open new terminal window
-  * Run command `make api` - to run DB and API containers
+  * Open a new terminal window
+  * Run the command `make api` - to run DB and API containers
 
-* When API server is up:
-  * open new terminal window
+* When the API server is up:
+  * open a new terminal window
   * run: `make fe` - to run Frontend container
 * Open [http://localhost:3000](http://localhost:3000) to view it in the browser
