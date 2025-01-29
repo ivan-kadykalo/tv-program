@@ -30,7 +30,7 @@ Production link: https://tv-pr.vercel.app/
 ## Used technologies:
 * Typescript (Frontend, Server, and API - SLS functions)
 * SCSS (modular system)
-* Docker (DB, AP,I and FE containers)
+* Docker (API and FE containers)
 * PostgreSQL (for local and production databases)
   
 ## How to run the app locally
@@ -40,7 +40,7 @@ Production link: https://tv-pr.vercel.app/
 ### Steps:
 * Open the root folder
   * Open a new terminal window
-  * Run the command `make api` - to run DB and API containers
+  * Run the command `make api` - to run API container
 
 * When the API server is up:
   * open a new terminal window
