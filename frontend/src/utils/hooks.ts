@@ -25,7 +25,6 @@ export const useEvents = (pageType: ProgramType): Output => {
       try {
         const response = await fetch(EVENTS_API_URL);
         const fetchedEvents = await response.json();
-
         const normalizedEvents = EventsNormalizer.normalizeEvents(fetchedEvents);
 
         setEvents(normalizedEvents);

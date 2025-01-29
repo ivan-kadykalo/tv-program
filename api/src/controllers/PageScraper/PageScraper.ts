@@ -28,7 +28,10 @@ export class PageScraper {
         })
       );
 
-      return results.flat();
+      const flatResult = results.flat();
+      const sortedResult = flatResult.sort((a, b) => a.time.getTime() - b.time.getTime());
+
+      return sortedResult;
     } catch (error) {
       throw new Error(ERRORS.SCRAPING_FAILED);
     }
