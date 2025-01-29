@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import { ProgramType, TVEvent } from '@/utils/typedefs';
 import { useSearchParams } from "next/navigation";
-import {EVENTS_API_URL, QUERY_TYPE} from "@/utils/constants";
+import { QUERY_TYPE } from "@/utils/constants";
 import {EventsNormalizer} from "@/utils/normalizer";
 
 interface Output {
   events: TVEvent[];
   loading: boolean;
 }
+
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
+const API_REST_ENDPOINT = process.env.NEXT_PUBLIC_API_REST_ENDPOINT;
+const EVENTS_REST_ENDPOINT = 'events.ts';
+const EVENTS_API_URL = `${API_HOST}${API_REST_ENDPOINT}/${EVENTS_REST_ENDPOINT}`;
 
 export const useEvents = (pageType: ProgramType): Output => {
   const [events, setEvents] = useState<TVEvent[]>([]);

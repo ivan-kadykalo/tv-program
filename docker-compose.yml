@@ -1,24 +1,6 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres
-    env_file:
-      - .env
-    ports:
-      - '54320:5432'
-
-  pg_proxy:
-    image: ghcr.io/neondatabase/wsproxy:latest
-    environment:
-      APPEND_PORT: 'postgres:5432'
-      ALLOW_ADDR_REGEX: '.*'
-      LOG_TRAFFIC: 'true'
-    ports:
-      - '54330:80'
-    depends_on:
-      - postgres
-
   api:
     build:
       context: ./api
@@ -32,8 +14,6 @@ services:
       - '5010:5010'
     env_file:
       - .env
-    depends_on:
-      - postgres
     command: sh -c "npm install && npm run dev"
 
   frontend:

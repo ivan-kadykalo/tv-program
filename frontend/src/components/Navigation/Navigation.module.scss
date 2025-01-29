@@ -9,11 +9,15 @@
 
   padding: utils.$module-size utils.$module-size utils.$module-size * 2;
 
-
   border-top-left-radius: utils.$module-size * 2;
   border-top-right-radius: utils.$module-size * 2;
 
   @include utils.glassBackground();
+}
+
+.contentWrapper {
+  max-width: 700px;
+  margin: 0 auto;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);

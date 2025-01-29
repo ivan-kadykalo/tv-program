@@ -21,14 +21,16 @@ export const Navigation: FC<Props> = (props) => {
 
   return (
     <header className={styles.navigation}>
-      {Object.values(ProgramType).map((type) => (
-        <NavButton
-          key={type}
-          currentPageType={pageType}
-          buttonType={type}
-          handleClick={handleClick}
-        />
-      ))}
+      <div className={styles.contentWrapper}>
+        {Object.values(ProgramType).map((type) => (
+          <NavButton
+            key={type}
+            currentPageType={pageType}
+            buttonType={type}
+            handleClick={handleClick}
+          />
+        ))}
+      </div>
     </header>
   )
 }
