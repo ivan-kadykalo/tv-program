@@ -14,4 +14,14 @@
     { "src": "/api/(.*)", "dest": "/api/src/rest/$1" },
     { "src": "/(.*)", "dest": "frontend/$1" }
   ],
+  "crons": [
+    {
+      "path": "/api/src/rest/scrape.ts",
+      "schedule": "0 1 * * *"
+    },
+    {
+      "path": "/api/src/rest/cleanOldRecords.ts",
+      "schedule": "0 4 * * *"
+    }
+  ]
 }

@@ -14,8 +14,3 @@ export const MAP_BUTTON_NAME: Record<ProgramType, string> = {
   [ProgramType.MOVIE]: 'Фільми',
   [ProgramType.CARTOON]: 'Мультфільми',
 };
-
-const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
-const API_REST_ENDPOINT = process.env.NEXT_PUBLIC_API_REST_ENDPOINT;
-const EVENTS_REST_ENDPOINT = '/events.ts';
-export const EVENTS_API_URL = `${API_HOST}${API_REST_ENDPOINT}/${EVENTS_REST_ENDPOINT}`;

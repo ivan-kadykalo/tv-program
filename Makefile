@@ -2,12 +2,17 @@
 
 DOCKER_COMPOSE := docker-compose
 
-.PHONY: all api fe down down-api down-fe
+.PHONY: all db api fe down down-api down-fe
 
-all: api fe
+all: db api fe
+
+# Start PostgreSQL and pg_proxy together
+db:
+	@echo "Starting PostgreSQL and pg_proxy..."
+	$(DOCKER_COMPOSE) up -d postgres pg_proxy
 
 # Start API
-api:
+api: db
 	@echo "Starting API..."
 	$(DOCKER_COMPOSE) up --build api
 
