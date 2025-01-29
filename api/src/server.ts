@@ -2,12 +2,8 @@ import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import fs from 'fs';
 import path from 'path';
-import { Scraper } from "./services/scrapper/Scraper";
-import { DB } from "./services/db/DB";
 
 const app = express();
-const scraper = new Scraper();
-const db = new DB();
 
 const PORT = process.env.API_PORT;
 const API_HOST = process.env.API_HOST;
@@ -30,22 +26,21 @@ const initApiRestRoutes = () => {
       (req: Request, res: Response) => functionHandler(req, res)
     );
 
-    console.log('🚀:', `${API_HOST}${apiEndpoint}` );
+    console.log(`🚀: ${API_HOST}${apiEndpoint}`);
   });
 };
 
+// ⚠️ Local development server. Not used in production! ⚠️
 const runServer = async () => {
   try {
-    await db.createTable();
-    await scraper.processScrapping();
     initApiRestRoutes();
   } catch (error) {
-    console.error('[🚨]', 'Database initialization failed:', error);
+    console.error('🚨 Server initialization failed: ', error);
   }
 }
 
 runServer();
 
 app.listen(PORT, () => {
-  console.log(`API server running on: ${API_HOST}`);
+  console.log(`🚀: API server running on: ${API_HOST}`);
 });

@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import { ProgramType, TVEvent } from '@/utils/typedefs';
 import { useSearchParams } from "next/navigation";
-import { QUERY_TYPE } from "@/utils/constants";
+import {EVENTS_API_URL, QUERY_TYPE} from "@/utils/constants";
+import {EventsNormalizer} from "@/utils/normalizer";
 
 interface Output {
   events: TVEvent[];
   loading: boolean;
 }
-
-const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
-const API_REST_ENDPOINT = process.env.NEXT_PUBLIC_API_REST_ENDPOINT;
-const apiUrl = `${API_HOST}${API_REST_ENDPOINT}/events.ts`;
 
 export const useEvents = (pageType: ProgramType): Output => {
   const [events, setEvents] = useState<TVEvent[]>([]);
@@ -21,10 +18,12 @@ export const useEvents = (pageType: ProgramType): Output => {
       setLoading(true);
 
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(EVENTS_API_URL);
         const fetchedEvents = await response.json();
 
-        setEvents(fetchedEvents);
+        const normalizedEvents = EventsNormalizer.normalizeEvents(fetchedEvents);
+
+        setEvents(normalizedEvents);
       } catch (error) {
         console.error('🚨 Error while fetching events:', error);
       } finally {
