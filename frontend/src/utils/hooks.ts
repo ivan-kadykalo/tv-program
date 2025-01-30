@@ -11,8 +11,8 @@ interface Output {
 
 const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
 const API_REST_ENDPOINT = process.env.NEXT_PUBLIC_API_REST_ENDPOINT;
-const EVENTS_REST_ENDPOINT = 'events.ts';
-const EVENTS_API_URL = `${API_HOST}${API_REST_ENDPOINT}/${EVENTS_REST_ENDPOINT}`;
+const EVENTS_REST_ENDPOINT = '/events.ts';
+const EVENTS_API_URL = `${API_HOST}${API_REST_ENDPOINT}${EVENTS_REST_ENDPOINT}`;
 
 export const useEvents = (pageType: ProgramType): Output => {
   const [events, setEvents] = useState<TVEvent[]>([]);

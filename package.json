@@ -1,15 +1,13 @@
 {
-  "dependencies": {
-    "@neondatabase/serverless": "^0.10.1",
-    "@vercel/postgres": "^0.10.0",
-    "concurrently": "^9.0.1"
-  },
   "scripts": {
     "start:fe-local": "cd frontend && npm run dev-local",
     "start:fe": "cd frontend && npm run dev",
     "start:api-local": "cd api && npm run dev-local",
     "start:api": "cd api && npm run dev",
     "start-local": "concurrently \"npm run start:fe-local\" \"npm run start:api-local\"",
-    "start": "concurrently \"npm run start:fe\" \"npm run start:api\"",
+    "start": "concurrently \"npm run start:fe\" \"npm run start:api\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
   }
 }
